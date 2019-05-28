@@ -1,0 +1,22 @@
+uuid: e82457bd-49c2-459c-82a0-4bb9a01efb84
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.altercation_report.field_reporter
+    - node.type.altercation_report
+  module:
+    - user
+id: node.altercation_report.teaser
+targetEntityType: node
+bundle: altercation_report
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_reporter: true

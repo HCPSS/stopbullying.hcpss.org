@@ -1,0 +1,153 @@
+.tabledrag-toggle-weight-wrapper,
+.field-multiple-drag {
+  display: none;
+}
+
+.field-multiple-table {
+  width: 100%;
+
+  h4 {
+    margin: 0;
+  }
+}
+
+@media (max-width: $medium) {
+  input.form-autocomplete, input.form-text, input.form-tel, input.form-email, 
+  input.form-url, input.form-search, input.form-number, input.form-color, 
+  input.form-file, input.form-date, input.form-time, textarea.form-textarea, 
+  select.form-select {
+    width: 100%;
+  }
+}
+
+.field--widget-person-widget .fieldset-wrapper .form-item + .form-item {
+  margin-top: 1rem;
+}
+
+@media (min-width: $medium) {  	
+  .field-multiple-table .form-type-textfield,
+  .field-multiple-table .form-type-number {
+    display: table-row;
+
+    & > label, & > input {
+      display: table-cell;
+      margin: 5px 0;
+    }
+
+    & > label {
+      padding-right: $form-padding;
+
+      @media (max-width: $medium) {
+        padding-right: $form-padding-tight;
+      }
+    }
+  }
+}
+
+.form-checkboxes > .form-item {
+  display: table-row;
+  margin: 8px 0;
+  padding-left: 10px;
+
+  input, label {
+    display: table-cell;
+  }
+
+  label {
+    padding-left: 5px;
+  }
+}
+
+.field--widget-person-widget .form-type-checkbox {
+  margin-top: 10px;
+}
+
+.form-item-report-anonymous {
+  margin-top: 1.5em;
+}
+
+.form-item-field-reporter-0-role {
+  margin: 0;
+}
+
+.field--type-list-string,
+.field-multiple-table .field-label .label,
+.field-multiple-table .draggable td,
+.field--widget-string-textarea,
+.form-actions {
+  padding: 0 $form-padding;
+
+  @media (max-width: $medium) {
+    padding: 0 $form-padding-tight;
+  }
+}
+
+.field-multiple-table {
+  .draggable {
+    td { 
+      padding: $form-padding;
+
+      @media (max-width: $medium) {
+        padding: $form-padding-tight;
+      }
+    }
+
+    &:nth-child(2n) {
+      background-color: #fbfbfb;
+    }
+  }
+}
+
+.field--widget-person-widget, .field--widget-datetime-default {
+  .field-add-more-submit {
+    margin-left: $form-padding;
+
+    @media (max-width: $medium) {
+      margin-left: $form-padding-tight;
+    }
+  }
+}
+
+#edit-field-reporter-0 {
+  padding: $form-padding;
+  background-color: #fbfbfb;
+
+  @media (max-width: $medium) {
+    padding: $form-padding-tight;
+  }
+}
+
+.form-type-checkbox {
+  margin-top: 1.5em;
+}
+
+.form-checkboxes .form-type-checkbox {
+   margin-top: 0;
+}
+
+.field-multiple-table {
+  margin-bottom: 1.5rem;
+}
+
+.node-bullying-report-public-form table tr th {
+  padding: 0;
+  background-color: inherit;
+  color: inherit;
+}
+
+#edit-field-reporter-0 h4.label {
+  margin-top: 0;
+}
+
+#edit-field-reporter-0 .description {
+  margin-top: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+.fieldset-wrapper label,
+#edit-field-reporter-0-role--wrapper legend {
+  font-weight: normal;
+}

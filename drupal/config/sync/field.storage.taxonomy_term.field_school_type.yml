@@ -1,0 +1,35 @@
+uuid: 4b88b70c-adb9-45b4-8912-37ff2390d80e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+_core:
+  default_config_hash: qZeW4Cglz7WqClRn5IJdCPCKabwe78qkOLGADS0orx8
+id: taxonomy_term.field_school_type
+field_name: field_school_type
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ec
+      label: 'Education Center'
+    -
+      value: es
+      label: 'Elementary School'
+    -
+      value: ms
+      label: 'Middle School'
+    -
+      value: hs
+      label: 'High School'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

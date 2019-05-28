@@ -1,0 +1,19 @@
+uuid: 0e2c71c0-0515-4e0c-8547-4a666c1b4244
+langcode: en
+status: true
+dependencies:
+  module:
+    - bullying
+    - node
+id: node.field_targets
+field_name: field_targets
+entity_type: node
+type: person
+settings: {  }
+module: bullying
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

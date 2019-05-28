@@ -1,0 +1,22 @@
+uuid: 9526760d-e7c9-463b-9895-25e42f67d6ec
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - parity
+_core:
+  default_config_hash: OS1O8An9vsD-BtO7vPLwsp5mE0X7Rw-8jvjylT-inVc
+id: parity_search
+theme: parity
+region: header
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility: {  }

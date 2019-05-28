@@ -1,0 +1,54 @@
+uuid: d5c5ad97-4274-44c5-bb07-3df981c52120
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bullying_report.field_absences_caused
+    - field.field.node.bullying_report.field_additional_information
+    - field.field.node.bullying_report.field_cause
+    - field.field.node.bullying_report.field_dates
+    - field.field.node.bullying_report.field_description
+    - field.field.node.bullying_report.field_incident_type
+    - field.field.node.bullying_report.field_incident_type_other
+    - field.field.node.bullying_report.field_incident_type_physical
+    - field.field.node.bullying_report.field_location
+    - field.field.node.bullying_report.field_number_of_days_absent
+    - field.field.node.bullying_report.field_offenders
+    - field.field.node.bullying_report.field_permanent_physical_effects
+    - field.field.node.bullying_report.field_physical_injury
+    - field.field.node.bullying_report.field_psychological_injury
+    - field.field.node.bullying_report.field_reporter
+    - field.field.node.bullying_report.field_targets
+    - field.field.node.bullying_report.field_witnesses
+    - node.type.bullying_report
+  module:
+    - user
+id: node.bullying_report.teaser
+targetEntityType: node
+bundle: bullying_report
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_absences_caused: true
+  field_additional_information: true
+  field_cause: true
+  field_dates: true
+  field_description: true
+  field_incident_type: true
+  field_incident_type_other: true
+  field_incident_type_physical: true
+  field_location: true
+  field_number_of_days_absent: true
+  field_offenders: true
+  field_permanent_physical_effects: true
+  field_physical_injury: true
+  field_psychological_injury: true
+  field_reporter: true
+  field_targets: true
+  field_witnesses: true

@@ -1,0 +1,21 @@
+uuid: 85b30ff2-893e-482f-9c7a-862db5e043ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_incident_type
+    - node.type.bullying_report
+  module:
+    - options
+id: node.bullying_report.field_incident_type
+field_name: field_incident_type
+entity_type: node
+bundle: bullying_report
+label: 'Select the statement(s) that best describes what happened (Choose all that apply.)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

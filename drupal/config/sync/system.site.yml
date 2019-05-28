@@ -1,0 +1,14 @@
+uuid: b0ed0485-96c0-4101-95d1-f9521bb6df07
+name: Bullying
+mail: brendan_anderson@hcpss.org
+slogan: 'Bullying, Harassment, or Intimidation Reporting'
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

@@ -1,0 +1,15 @@
+field.field_settings.person:
+  type: mapping
+  label: 'Person settings'
+  mapping:
+    showStudent:
+      type: boolean
+      label: 'Show student field'
+      
+field.widget.settings.person:
+  type: mapping
+  label: 'Person NAME widget settings'
+  mapping:
+    showStudent:
+      type: boolean
+      label: 'Show student field'

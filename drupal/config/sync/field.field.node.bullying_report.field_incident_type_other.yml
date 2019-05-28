@@ -1,0 +1,19 @@
+uuid: 9f74fcbb-c68a-4c1b-9883-a4cb397e30be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_incident_type_other
+    - node.type.bullying_report
+id: node.bullying_report.field_incident_type_other
+field_name: field_incident_type_other
+entity_type: node
+bundle: bullying_report
+label: 'Please specify the other type of incident'
+description: 'You specified that the incident included <em>Other</em>. Please specify.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

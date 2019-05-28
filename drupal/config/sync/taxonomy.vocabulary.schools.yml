@@ -1,0 +1,10 @@
+uuid: 82409daf-255b-4f72-8403-67b4545458de
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hhtBUYsov-4WsJ6ziX4qV761lu3uspvxRNiH82LnFck
+name: Schools
+vid: schools
+description: 'HCPSS schools and education centers.'
+weight: 0

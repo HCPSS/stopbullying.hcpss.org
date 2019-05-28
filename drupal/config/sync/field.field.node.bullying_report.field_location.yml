@@ -1,0 +1,21 @@
+uuid: 55b28c71-4a7c-4252-9c0a-669ef0914590
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.bullying_report
+  module:
+    - options
+id: node.bullying_report.field_location
+field_name: field_location
+entity_type: node
+bundle: bullying_report
+label: 'Where did the incident happen? (Choose all that apply.)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

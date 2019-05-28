@@ -1,0 +1,8 @@
+name: 'Bullying'
+description: 'Bullying, Harassment, or Intimidation Reporting Form.'
+package: HCPSS
+type: module
+core: 8.x
+version: 1.0
+dependencies:
+  - telephone

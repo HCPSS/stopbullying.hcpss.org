@@ -1,0 +1,160 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+function _bullying_is_operation_route() {
+  return FALSE;
+}
+
+/**
+ * Implementation of hook_ENTITY_TYPE_presave().
+ */
+function bullying_node_presave(NodeInterface $node) {
+  if ($node->bundle() == 'bullying_report' && $node->isNew()) {
+    // Bullying reports have no titles, and they don't really need them. Let's
+    // use a unique id.
+
+    $tracking_number = uniqid();
+    $node->setTitle($tracking_number);
+
+    \Drupal::messenger()->addMessage(t('Your report has been issued tracking number @tracking.', [
+      '@tracking' => $tracking_number,
+    ]));
+  }
+}
+
+/**
+ * Implementation of hook_entity_type_build().
+ */
+function bullying_entity_type_build(array $entity_types) {
+  $entity_types['node']->setFormClass('public', 'Drupal\node\NodeForm');
+}
+
+/**
+ * Implementation of hook_field_widget_multivalue_WIDGET_ID_form_alter().
+ */
+function bullying_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, array $context) {
+  if (!array_key_exists('#cardinality_multiple', $elements)) {
+    return;
+  }
+
+  if (!$elements['#cardinality_multiple']) {
+    return;
+  }
+
+  switch ($elements['#field_name']) {
+    case 'field_offenders':
+      $elements['add_more']['#value'] = t('Add another offender');
+      break;
+    case 'field_targets':
+      $elements['add_more']['#value'] = t('Add another target/victim');
+      break;
+    case 'field_witnesses':
+      $elements['add_more']['#value'] = t('Add another witness');
+      break;
+    case 'field_dates':
+      $elements['add_more']['#value'] = t('Add another date');
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_field_widget_WIDGET_ID_form_alter().
+ */
+function bullying_field_widget_reporter_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $element['anonymous_warning'] = [
+    '#type' => 'item',
+    '#markup' => '<p>' . t(''
+        . 'You can submit your report anonymously, but it will severely '
+        . 'limit the ability of administrators to investigate the issue. '
+        . 'If you do choose to include your information, it will be held in '
+        . 'confidence.') . '</p>',
+      '#states' => [
+        'visible' => [
+          ':input[name="field_reporter[' . $context['delta'] . '][report_anonymous]"]' => ['checked' => TRUE],
+        ],
+      ],
+  ];
+
+  $element['report_anonymous'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Submit this report anonymously'),
+  ];
+
+  foreach (['name', 'telephone', 'email', 'school', 'role'] as $field) {
+    $element[$field]['#states'] = [
+      'visible' => [
+        ':input[name="field_reporter[' . $context['delta'] . '][report_anonymous]"]' => ['checked' => FALSE],
+      ],
+    ];
+  }
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function bullying_form_node_bullying_report_public_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['field_incident_type_other']['#states'] = [
+    'visible' => [
+      ':input[name="field_incident_type[Other]"]' => ['checked' => TRUE],
+    ],
+  ];
+
+  $form['field_incident_type_physical']['#states'] = [
+    'visible' => [
+      ':input[name="field_incident_type[Any bullying, harassment, or intimidation that involves physical aggression.]"]' => ['checked' => TRUE],
+    ],
+  ];
+
+  $form['field_permanent_physical_effects']['#states'] = [
+    'invisible' => [
+      ['select[name="field_physical_injury"]' => ['value' => '_none']],
+      ['select[name="field_physical_injury"]' => ['value' => 'No']],
+    ],
+  ];
+
+  $form['field_number_of_days_absent']['#states'] = [
+    'visible' => [
+      'select[name="field_absences_caused"]' => ['value' => 'Yes'],
+    ],
+  ];
+
+  foreach (array_keys($form['actions']) as $action) {
+    if (
+      $action != 'preview' &&
+      isset($form['actions'][$action]['#type']) &&
+      $form['actions'][$action]['#type'] === 'submit'
+    ) {
+      array_unshift($form['actions'][$action]['#submit'], '_bullying_clean_anonymous_submission');
+      $form['actions'][$action]['#submit'][] = '_bullying_redirect_submission';
+    }
+  }
+}
+
+/**
+ * Form submission handler.
+ *
+ * Redirect the user to the front page.
+ */
+function _bullying_redirect_submission(array $form, FormStateInterface $form_state) {
+  \Drupal::messenger()->addMessage(t('Thank you for your report.'));
+  $form_state->setRedirect('<front>');
+}
+
+/**
+ * Submit handler for public bullying form.
+ */
+function _bullying_clean_anonymous_submission(array $form, FormStateInterface $form_state) {
+  if ($form_state->getValue('field_reporter')[0]['report_anonymous']) {
+    // The user wanted to submit this report anonymously. Make sure no data gets
+    // accidentaly saved.
+    $form_state->setValue('field_reporter', [0 => [
+      'name'      => '',
+      'telephone' => '',
+      'email'     => '',
+      'school'    => '',
+      'role'      => '',
+    ]]);
+  }
+}

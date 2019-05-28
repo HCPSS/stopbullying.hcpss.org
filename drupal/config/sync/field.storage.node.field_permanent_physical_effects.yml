@@ -1,0 +1,27 @@
+uuid: 2ada2cf4-c57b-4552-b014-e3b3867a0b39
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_permanent_physical_effects
+field_name: field_permanent_physical_effects
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'No'
+      label: 'No'
+    -
+      value: 'Yes'
+      label: 'Yes'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 10a52247-32eb-4437-932e-4bbe0d59a518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_days_absent
+    - node.type.bullying_report
+id: node.bullying_report.field_number_of_days_absent
+field_name: field_number_of_days_absent
+entity_type: node
+bundle: bullying_report
+label: 'How many days was the target/victim absent from school as a result of the incident?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: day|days
+field_type: integer

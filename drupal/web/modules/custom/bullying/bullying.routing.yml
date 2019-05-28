@@ -1,0 +1,13 @@
+bullying.report:
+  path: report
+  defaults: 
+    _controller: '\Drupal\bullying\Controller\ReportController::report'
+    _title: 'Report an Instance of Bullying, Harassment, or Intimidation Reporting'
+  requirements:
+    _node_add_access: 'node:bullying_report'
+bullying.school.autocomplete:
+  path: '/schools/autocomplete'
+  defaults:
+    _controller: '\Drupal\bullying\Controller\ReportController::schools'
+  requirements:
+    _permission: 'access content'

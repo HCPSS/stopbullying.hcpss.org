@@ -1,0 +1,22 @@
+uuid: 5309b496-ca4f-4ffe-9ddd-a706eb0abdb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_witnesses
+    - node.type.bullying_report
+  module:
+    - bullying
+id: node.bullying_report.field_witnesses
+field_name: field_witnesses
+entity_type: node
+bundle: bullying_report
+label: 'Name of alleged witness(es) if known'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  showStudent: false
+field_type: person

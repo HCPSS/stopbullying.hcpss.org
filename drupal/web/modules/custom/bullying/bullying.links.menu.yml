@@ -1,0 +1,10 @@
+bullying.home:
+  title: Home
+  parent: system.menu
+  route_name: '<front>'
+  menu_name: main
+bullying.report:
+  title: 'Make a Report'
+  parent: system.menu
+  route_name: bullying.report
+  menu_name: main

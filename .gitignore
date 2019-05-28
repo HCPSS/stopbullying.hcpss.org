@@ -1,0 +1,8 @@
+/.settings
+/.data
+/nbproject
+/.env
+/.buildpath
+/.project
+.DS_Store
+/.credentials

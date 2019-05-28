@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Implementation of theme_preprocess_datetime_wrapper().
+ */
+function bullying_parity_preprocess_datetime_wrapper(&$variables) {
+  unset($variables['title']);
+}
+
+/**
+ * Implementation of hook_theme_suggestions_HOOK_alter().
+ */
+function bullying_parity_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  if ($variables['element']['#type'] == 'fieldgroup') {
+    $suggestions[] = 'fieldgroup';
+  }
+}
+
+/**
+ * Implementation of hook_preprocess_HOOK()
+ */
+function bullying_parity_preprocess_fieldset(&$variables, $hook, &$info) {
+if ($variables['element']['#type'] == 'fieldgroup') {
+    $info['template'] = 'fieldgroup';
+    $info['path'] = $variables['directory'] . '/templates/form';
+  }
+}

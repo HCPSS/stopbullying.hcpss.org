@@ -1,0 +1,11 @@
+uuid: d8f2fc10-72e9-45ed-a5cc-e789e86fcbb9
+langcode: en
+status: true
+dependencies: {  }
+id: api
+label: API
+weight: 3
+is_admin: null
+permissions:
+  - 'delete any bullying_report content'
+  - 'view any bullying_report content'

@@ -1,0 +1,75 @@
+uuid: 8ec7a7f8-4d88-4661-8f66-aa64e51f0ae2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_incident_type
+field_name: field_incident_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Any bullying, harassment, or intimidation that involves physical aggression.'
+      label: 'Any bullying, harassment, or intimidation that involves physical aggression.'
+    -
+      value: 'Getting another person to hit or harm the student'
+      label: 'Getting another person to hit or harm the student'
+    -
+      value: 'Teasing, name-calling, making critical remarks, or threatening, in person or by other means'
+      label: 'Teasing, name-calling, making critical remarks, or threatening, in person or by other means'
+    -
+      value: 'Demeaning and making the target/victim of jokes'
+      label: 'Demeaning and making the target/victim of jokes'
+    -
+      value: 'Making rude and/or threatening gestures'
+      label: 'Making rude and/or threatening gestures'
+    -
+      value: 'Excluding or rejecting the student'
+      label: 'Excluding or rejecting the student'
+    -
+      value: 'Intimidating, extorting, or exploiting'
+      label: 'Intimidating, extorting, or exploiting'
+    -
+      value: 'Spreading harmful rumors or gossip q Related to the student’s disability'
+      label: 'Spreading harmful rumors or gossip q Related to the student’s disability'
+    -
+      value: 'Related to the student’s perceived sexual orientationRelated to the student’s perceived sexual orientation'
+      label: 'Related to the student’s perceived sexual orientationRelated to the student’s perceived sexual orientation'
+    -
+      value: 'Electronic Communication (e.g. E-mail, text, sexting, etc.)'
+      label: 'Electronic Communication (e.g. E-mail, text, sexting, etc.)'
+    -
+      value: 'Gang Related'
+      label: 'Gang Related'
+    -
+      value: 'Gang Recruitment'
+      label: 'Gang Recruitment'
+    -
+      value: 'Human trafficking/prostitution recruitment'
+      label: 'Human trafficking/prostitution recruitment'
+    -
+      value: 'Racial Harassment'
+      label: 'Racial Harassment'
+    -
+      value: 'Sexual Discrimination (Harassment)'
+      label: 'Sexual Discrimination (Harassment)'
+    -
+      value: 'Sexual in nature'
+      label: 'Sexual in nature'
+    -
+      value: 'Cyberbullying (e.g. social media including Facebook, Twitter, Vine, Snapchat, Periscope, kik, Instagram, etc.)'
+      label: 'Cyberbullying (e.g. social media including Facebook, Twitter, Vine, Snapchat, Periscope, kik, Instagram, etc.)'
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,39 @@
+uuid: 5ec6406a-494f-4772-a1a8-1ad300976026
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_location
+field_name: field_location
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'On school property'
+      label: 'On school property'
+    -
+      value: 'At a school-sponsored activity or event off school property'
+      label: 'At a school-sponsored activity or event off school property'
+    -
+      value: 'On a school bus'
+      label: 'On a school bus'
+    -
+      value: 'On the way to/from school'
+      label: 'On the way to/from school'
+    -
+      value: 'Via Internet–sent off school property'
+      label: 'Via Internet–sent off school property'
+    -
+      value: 'Via Internet–sent on school property'
+      label: 'Via Internet–sent on school property'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

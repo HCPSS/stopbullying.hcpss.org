@@ -1,0 +1,19 @@
+uuid: 4b1d2c8d-fe39-4043-958f-1bf403736b7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_description
+field_name: field_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

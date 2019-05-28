@@ -1,0 +1,21 @@
+uuid: 67267df7-b59b-46d3-a1c2-4f23e819b583
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_principal
+    - taxonomy.vocabulary.schools
+_core:
+  default_config_hash: yKKheLxyp3zO79JDS0dcBUkvLg4rsjGeRFYwKhmXTMw
+id: taxonomy_term.schools.field_principal
+field_name: field_principal
+entity_type: taxonomy_term
+bundle: schools
+label: Principal
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

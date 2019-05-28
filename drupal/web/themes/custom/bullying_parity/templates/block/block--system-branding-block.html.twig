@@ -1,0 +1,26 @@
+{% extends "block.html.twig" %}
+
+{% block content %}
+  <p>
+    {% if site_logo %}
+      <a href="http://www.hcpss.org" title="{{ 'HCPSS Home'|t }}" class="logo">
+        <img class="hcpss-logo" src="{{ site_logo }}" alt="{{ 'Home'|t }}">
+      </a> 
+    {% endif %}
+    
+    <a href="http://www.hcpss.org" title="{{ 'HCPSS Home'|t }}" class="header-link">HCPSS</a>
+    
+    {% if site_name %}
+      <span class="news-navigation--separator">/</span>
+      <span class="news-navigation--section">
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="header-link">{{ site_name }}</a>
+      </span>
+    {% endif %}
+    
+    {% if site_slogan %}
+      <br><span class="slogan">{{ site_slogan }}</span>
+    {% endif %}
+  </p>
+  
+  {% block secondary_nav %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,57 @@
+uuid: 6c12ba3c-f3ae-46ed-916a-7140115afcef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.schools.field_acronym
+    - field.field.taxonomy_term.schools.field_administrative_cluster
+    - field.field.taxonomy_term.schools.field_principal
+    - field.field.taxonomy_term.schools.field_school_type
+    - taxonomy.vocabulary.schools
+_core:
+  default_config_hash: rsT_S-HMTEyoGgVBcWKao8Apd9KGctxaMtMqzvua4aw
+id: taxonomy_term.schools.default
+targetEntityType: taxonomy_term
+bundle: schools
+mode: default
+content:
+  field_acronym:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_administrative_cluster:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_principal:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_school_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

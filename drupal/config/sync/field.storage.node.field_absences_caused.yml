@@ -1,0 +1,27 @@
+uuid: 5c0925c4-299c-4a09-8efd-e4dd95dbf48d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_absences_caused
+field_name: field_absences_caused
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'No'
+      label: 'No'
+    -
+      value: 'Yes'
+      label: 'Yes'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

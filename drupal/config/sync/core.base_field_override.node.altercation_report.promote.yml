@@ -1,0 +1,22 @@
+uuid: 78dc3899-c6e0-4e93-ab9a-7b946b81fc3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.altercation_report
+id: node.altercation_report.promote
+field_name: promote
+entity_type: node
+bundle: altercation_report
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

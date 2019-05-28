@@ -1,0 +1,5 @@
+services:
+  bullying.commands:
+    class: \Drupal\bullying\Commands\BullyingCommands
+    tags:
+      - { name: drush.command }

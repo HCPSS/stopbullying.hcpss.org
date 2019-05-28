@@ -1,0 +1,22 @@
+uuid: 2e8ba03e-9414-4f30-9096-0a61c3451b07
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - parity
+_core:
+  default_config_hash: ODpE5FbGh-srFCyGpFQQkM0zccVLA5eD8AxswvejXJo
+id: parity_powered
+theme: parity
+region: header
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

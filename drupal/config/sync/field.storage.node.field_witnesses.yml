@@ -1,0 +1,19 @@
+uuid: 5d9a4926-e87c-48b5-84b7-b9c2cebba719
+langcode: en
+status: true
+dependencies:
+  module:
+    - bullying
+    - node
+id: node.field_witnesses
+field_name: field_witnesses
+entity_type: node
+type: person
+settings: {  }
+module: bullying
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

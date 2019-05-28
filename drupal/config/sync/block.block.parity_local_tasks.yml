@@ -1,0 +1,22 @@
+uuid: b07e856c-d1f8-41c4-b608-e37190cf8d92
+langcode: en
+status: true
+dependencies:
+  theme:
+    - parity
+_core:
+  default_config_hash: HcSHKGyn71WhrtfNpZHja4k4oytaNLWcnWq88KvrZ4Y
+id: parity_local_tasks
+theme: parity
+region: content
+weight: -8
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

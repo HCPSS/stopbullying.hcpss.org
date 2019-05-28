@@ -1,0 +1,24 @@
+uuid: 7d195f29-4035-4597-9de1-0171a16c920f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'create bullying_report content'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view any article content'
+  - 'view any page content'
+  - 'view error messages'
+  - 'view own article content'
+  - 'view own page content'
+  - 'view status messages'
+  - 'view warning messages'

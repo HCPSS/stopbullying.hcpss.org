@@ -1,0 +1,22 @@
+uuid: 0b4f225e-746d-490c-b66a-4a3e50e5d445
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+_core:
+  default_config_hash: XcAdEB8eE_LSSvmIUcL6zONONlRxgEUQrnwg-I3FGbE
+id: taxonomy_term.field_administrative_cluster
+field_name: field_administrative_cluster
+entity_type: taxonomy_term
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

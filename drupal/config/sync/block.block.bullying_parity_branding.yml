@@ -1,0 +1,25 @@
+uuid: 119173e6-5716-4705-9246-40408001be05
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bullying_parity
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: bullying_parity_branding
+theme: bullying_parity
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

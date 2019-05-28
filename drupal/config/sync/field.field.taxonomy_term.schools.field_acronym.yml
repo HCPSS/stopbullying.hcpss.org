@@ -1,0 +1,21 @@
+uuid: 1b63c375-89ad-4e88-a621-a658598dfd25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_acronym
+    - taxonomy.vocabulary.schools
+_core:
+  default_config_hash: gzDe2SVmu9OoqU9eVkewG9nZyeCE6KOu75v-MNW7Z7I
+id: taxonomy_term.schools.field_acronym
+field_name: field_acronym
+entity_type: taxonomy_term
+bundle: schools
+label: Acronym
+description: '3 - 5 letter canonical acronym.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

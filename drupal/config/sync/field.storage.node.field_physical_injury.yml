@@ -1,0 +1,30 @@
+uuid: 2c3546fe-2624-42f6-9f00-23e4db8184ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_physical_injury
+field_name: field_physical_injury
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'No'
+      label: 'No'
+    -
+      value: 'Yes, but it did not require medical attention'
+      label: 'Yes, but it did not require medical attention'
+    -
+      value: 'Yes, and it required medical attention'
+      label: 'Yes, and it required medical attention'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
