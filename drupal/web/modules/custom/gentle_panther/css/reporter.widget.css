@@ -1,0 +1,23 @@
+.report-field-group {
+  background-color: #fbfbfb;
+}
+
+.report-field-group h4 {
+  padding: 20px 20px 0 20px;
+}
+
+.report-field-group #edit-field-reporter-0 {
+  padding-top: 0;
+}
+
+.report-field-group #edit-field-reporter-wrapper {
+  margin-top: 0;
+}
+
+#edit-field-reporter-0-top {
+  display: none;
+}
+
+.report-field-group label {
+  font-weight: normal;
+}

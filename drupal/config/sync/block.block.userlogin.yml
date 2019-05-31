@@ -1,0 +1,20 @@
+uuid: 41beb3c7-ac2f-410c-bfbb-2fde4acda92e
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - gentle_panther_admin
+id: userlogin
+theme: gentle_panther_admin
+region: content
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

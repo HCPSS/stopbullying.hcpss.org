@@ -1,0 +1,233 @@
+<?php
+
+/**
+ * @file
+ * Contains gentle_panther.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\gentle_panther\Entity\ReportInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implementation of hook_field_widget_multivalue_WIDGET_ID_form_alter().
+ */
+function gentle_panther_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, array $context) {
+  if (!array_key_exists('#cardinality_multiple', $elements)) {
+    return;
+  }
+  
+  if (!$elements['#cardinality_multiple']) {
+    return;
+  }
+  
+  switch ($elements['#field_name']) {
+    case 'field_offenders':
+      $elements['add_more']['add_more_button_person']['#value'] = t('Add another offender');
+      break;
+    case 'field_targets':
+      $elements['add_more']['add_more_button_person']['#value'] = t('Add another target/victim');
+      break;
+    case 'field_witnesses':
+      $elements['add_more']['add_more_button_person']['#value'] = t('Add another witness');
+      break;
+    case 'field_dates':
+      $elements['add_more']['#value'] = t('Add another date');
+      break;
+  }
+}
+
+/**
+ * Alter the widget for reporters.
+ * 
+ * @param array $element
+ * @param int $delta
+ */
+function _gentle_panther_alter_reporter_widget(&$element, $delta) {
+  $element['subform']['warning'] = [
+    '#type' => 'item',
+    '#markup' => '<p><em>' . t(''
+      . 'You can submit your report anonymously, but it will severely '
+      . 'limit the ability of administrators to investigate the issue. '
+      . 'If you do choose to include your information, it will be held in '
+      . 'confidence.') . '</em></p>',
+    '#weight' => 99,
+    '#states' => [
+      'visible' => [
+        ':input[name="field_reporter[' . $delta . '][subform][anonymous]"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+  
+  $element['subform']['anonymous'] = [
+    '#type' => 'checkbox',
+    '#default_value' => FALSE,
+    '#title' => t('Submit this report anonymously.'),
+    '#weight' => 100,
+    '#label_attributes' => ['style' => 'font-weight: normal;']
+  ];
+  
+  foreach (['name', 'phone', 'email', 'school', 'role'] as $field) {
+    $element['subform']['field_' . $field]['#states'] = [
+      'visible' => [
+        ':input[name="field_reporter[' . $delta . '][subform][anonymous]"]' => ['checked' => FALSE],
+      ],
+    ];
+  }
+}
+
+/**
+ * Alter the person paragraph widget.
+ * 
+ * @param array $element
+ * @param int $delta
+ */
+function _gentle_panther_alter_person_widget(&$element, $delta) {
+  $element['subform']['field_school']['#states'] = [
+    'visible' => [
+      ':input[name="field_offenders[' . $delta . '][subform][field_student][value]"]' => ['checked' => TRUE],
+    ],
+  ];
+}
+
+/**
+ * Implementation of hook_field_widget_multivalue_WIDGET_ID_form_alter().
+ */
+function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+  if ($element['#paragraph_type'] == 'reporter') {
+    $element['#attached']['library'][] = 'gentle_panther/gentle_panther.reporter.widget';
+    _gentle_panther_alter_reporter_widget($element, $context['delta']);
+  }
+  
+  if ($element['#paragraph_type'] == 'person') {
+    $element['subform']['#attributes']['class'][] = 'person-widget';
+    $element['#attached']['library'][] = 'gentle_panther/gentle_panther.person.widget';
+    
+    if ($context['widget']->getSetting('form_display_mode') == 'default') {
+      _gentle_panther_alter_person_widget($element, $context['delta']);
+    }
+  }
+}
+
+/**
+ * implementation of hook_form_alter().
+ */
+function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $matches = [];
+  preg_match('/^report_(.+)_form$/', $form_id, $matches);
+  
+  if (count($matches) > 1) {
+    $form['#attached']['library'][] = 'gentle_panther/gentle_panther.report.form';
+    $form['actions']['submit']['#value'] = t('Submit');
+  }
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormStateInterface $form_state, $form_id) {  
+  $options = $form['field_bullying_type']['widget']['#options'];
+  $option = NULL;
+  foreach ($options as $id => $markup) {
+    if (strpos((string)$markup, 'physical aggression') !== FALSE) {
+      $option = $id;
+      break;
+    }
+  }
+  
+  if ($option) {
+    $form['field_aggression_description']['#states'] = [
+      'visible' => [
+        ':input[name="field_bullying_type[' . $option . ']"]' => ['checked' => TRUE],
+      ],
+    ];
+  }
+  
+  $form['field_permanent_effects']['#states'] = $form['field_medical_attention']['#states'] = [
+    'visible' => [
+      ':input[name="field_physical_injury[value]"]' => ['checked' => TRUE],
+    ],
+  ];
+  
+  $form['field_psych_services_sought']['#states'] = [
+    'visible' => [
+      ':input[name="field_psychological_injury[value]"]' => ['checked' => TRUE],
+    ],
+  ];
+  
+  $form['field_days_absent']['#states'] = [
+    'visible' => [
+      ':input[name="field_caused_absences[value]"]' => ['checked' => TRUE],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_help().
+ */
+function gentle_panther_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the gentle_panther module.
+    case 'help.page.gentle_panther':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Bullying, Harassment, or Intimidation Reporting.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implementation of hook_ENTITY_TYPE_presave().
+ */
+function gentle_panther_report_presave(ReportInterface $report) {
+  if ($report->isNew()) {
+    $time = microtime(TRUE) * 10000;
+    $tracking_number = base_convert($time, 10, 32);
+    
+    $report->setName($tracking_number);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gentle_panther_theme() {
+  $theme = [];
+  
+  $theme['report'] = [
+    'render element' => 'elements',
+    'file' => 'report.page.inc',
+    'template' => 'report',
+  ];
+  
+  $theme['report_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'report.page.inc',
+  ];
+  
+  $theme['choose_report'] = ['variables' => ['report_types' => NULL]];
+  
+  $theme['gentle_panther'] = ['render element' => 'children'];
+  
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function gentle_panther_theme_suggestions_report(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#report'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'report__' . $sanitized_view_mode;
+  $suggestions[] = 'report__' . $entity->bundle();
+  $suggestions[] = 'report__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'report__' . $entity->id();
+  $suggestions[] = 'report__' . $entity->id() . '__' . $sanitized_view_mode;
+  
+  return $suggestions;
+}

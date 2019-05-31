@@ -1,0 +1,47 @@
+gentle_panther.report:
+  path: report
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::choose'
+    _title: 'Report an Issue to HCPSS'
+  requirements:
+    _permission: 'add report entities'
+
+gentle_panther.report.bullying:
+  path: report/bullying
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::publicBullyingForm'
+    _title: 'Report an Instance of Bullying, Harassment, or Intimidation'
+  requirements:
+    _permission: 'add report entities'
+
+gentle_panther.report.inappropriate_conduct:
+  path: report/inappropriate_conduct
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::publicInappropriateConductForm'
+    _title: 'Report Inappropriate Conduct'
+  requirements:
+    _permission: 'add report entities'
+
+gentle_panther.report.potential_altercation_threats:
+  path: report/potential_altercation_threats
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::publicPotentialAltercationForm'
+    _title: 'Report Potential Altercation or Threats'
+  requirements:
+    _permission: 'add report entities'
+
+gentle_panther.report.substance_use_abuse:
+  path: report/substance_use_abuse
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::publicSubstanceUseForm'
+    _title: 'Report Substance Use/Abuse'
+  requirements:
+    _permission: 'add report entities'
+
+gentle_panther.report.thanks:
+  path: report/thanks/{tracking_number}
+  defaults:
+    _controller: '\Drupal\gentle_panther\Controller\ReportController::thanks'
+    _title: 'Thank You'
+  requirements:
+    _permission: 'add report entities'

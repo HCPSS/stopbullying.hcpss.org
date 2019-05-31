@@ -1,0 +1,23 @@
+uuid: 4fa07f2c-c54b-47f5-a4c4-b2fe6ff97339
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_medical_attention
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_medical_attention
+field_name: field_medical_attention
+entity_type: report
+bundle: bullying_harassment
+label: 'Medical attention was required'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

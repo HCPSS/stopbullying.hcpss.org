@@ -1,0 +1,19 @@
+uuid: 2aa17392-51ad-4175-8d60-dc48e75cd686
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_cause
+field_name: field_cause
+entity_type: report
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

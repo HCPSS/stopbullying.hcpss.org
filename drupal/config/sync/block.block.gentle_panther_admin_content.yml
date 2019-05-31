@@ -1,0 +1,22 @@
+uuid: e9a222ff-f026-43db-80a3-4710b907a335
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gentle_panther_admin
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: gentle_panther_admin_content
+theme: gentle_panther_admin
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

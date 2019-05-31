@@ -1,0 +1,12 @@
+.report > .field {
+  margin: 1rem 0; }
+  .report > .field:first-of-type {
+    margin-top: 0; }
+  .report > .field > .field__label {
+    font-size: 18px; }
+
+.report .paragraph {
+  margin: 0.5rem 0; }
+  .report .paragraph:first-of-type {
+    margin-top: 0; }
+

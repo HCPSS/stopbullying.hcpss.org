@@ -1,0 +1,23 @@
+uuid: 917f8877-845b-4a00-944f-cea2f0dd3bb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_physical
+    - taxonomy.vocabulary.locations
+id: taxonomy_term.locations.field_physical
+field_name: field_physical
+entity_type: taxonomy_term
+bundle: locations
+label: Physical
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

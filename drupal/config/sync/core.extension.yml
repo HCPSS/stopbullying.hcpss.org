@@ -4,7 +4,6 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  bullying: 0
   ckeditor: 0
   color: 0
   comment: 0
@@ -21,10 +20,13 @@ module:
   disable_messages: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_reference_revisions: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
+  gentle_panther: 0
   hcpss_school_vocabulary: 0
   help: 0
   history: 0
@@ -56,6 +58,7 @@ module:
   webprofiler: 0
   menu_link_content: 1
   views: 10
+  paragraphs: 11
   minimal: 1000
 theme:
   stable: 0
@@ -64,6 +67,7 @@ theme:
   seven: 0
   parity: 0
   bullying_parity: 0
+  gentle_panther_admin: 0
 profile: minimal
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

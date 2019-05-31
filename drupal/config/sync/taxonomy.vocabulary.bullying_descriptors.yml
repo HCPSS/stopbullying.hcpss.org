@@ -1,0 +1,8 @@
+uuid: b5e4457e-ae94-4138-8b15-594c1a8a3290
+langcode: en
+status: true
+dependencies: {  }
+name: 'Bullying Descriptors'
+vid: bullying_descriptors
+description: 'Statements that describe what happened durring a bullying incident.'
+weight: 0

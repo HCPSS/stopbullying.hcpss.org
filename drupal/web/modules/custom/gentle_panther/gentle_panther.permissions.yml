@@ -1,0 +1,30 @@
+add report entities:
+  title: 'Create new Report entities'
+
+administer report entities:
+  title: 'Administer Report entities'
+  description: 'Allow to access the administration form to configure Report entities.'
+  restrict access: true
+
+delete report entities:
+  title: 'Delete Report entities'
+
+edit report entities:
+  title: 'Edit Report entities'
+
+view published report entities:
+  title: 'View published Report entities'
+
+view unpublished report entities:
+  title: 'View unpublished Report entities'
+
+view all report revisions:
+  title: 'View all Report revisions'
+
+revert all report revisions:
+  title: 'Revert all Report revisions'
+  description: 'Role requires permission <em>view Report revisions</em> and <em>edit rights</em> for report entities in question or <em>administer report entities</em>.'
+
+delete all report revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Report revisions</em> and <em>delete rights</em> for report entities in question or <em>administer report entities</em>.'

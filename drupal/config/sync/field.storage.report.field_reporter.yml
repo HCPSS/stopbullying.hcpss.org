@@ -1,0 +1,21 @@
+uuid: c2ad1a65-59e0-4b3a-9647-91f66fdbd866
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - gentle_panther
+    - paragraphs
+id: report.field_reporter
+field_name: field_reporter
+entity_type: report
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: b86c099a-d693-4927-ae0b-93404bf34cae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_role
+    - paragraphs.paragraphs_type.reporter
+    - taxonomy.vocabulary.roles
+id: paragraph.reporter.field_role
+field_name: field_role
+entity_type: paragraph
+bundle: reporter
+label: Role
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roles: roles
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: roles
+field_type: entity_reference

@@ -1,0 +1,34 @@
+uuid: 4eb2a394-9a36-49c3-80ba-3ab86f4a6748
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_offenders
+    - gentle_panther.report_type.substance_use_abuse
+    - paragraphs.paragraphs_type.person
+  module:
+    - entity_reference_revisions
+id: report.substance_use_abuse.field_offenders
+field_name: field_offenders
+entity_type: report
+bundle: substance_use_abuse
+label: 'Name(s) of alleged offender(s) (if known)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      person: person
+    target_bundles_drag_drop:
+      person:
+        enabled: true
+        weight: 3
+      reporter:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,23 @@
+uuid: 2d604c46-895f-4070-886f-9f677e361801
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_display
+    - taxonomy.vocabulary.bullying_descriptors
+id: taxonomy_term.bullying_descriptors.field_display
+field_name: field_display
+entity_type: taxonomy_term
+bundle: bullying_descriptors
+label: Display
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

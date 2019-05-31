@@ -1,0 +1,25 @@
+uuid: 6987ef1e-8b3c-4010-bec5-121f9a42bb9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_bullying_type
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_bullying_type
+field_name: field_bullying_type
+entity_type: report
+bundle: bullying_harassment
+label: ' Select the statement(s) that best describes what happened (Choose all that apply.)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: bullying_descriptors
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+$form-padding: 1rem;
+$medium: 768px;
+
+.report {
+  & > .field {
+    margin: $form-padding 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    & > .field__label {
+      font-size: 18px;
+    }
+  }
+
+  .paragraph {
+    margin: $form-padding / 2 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

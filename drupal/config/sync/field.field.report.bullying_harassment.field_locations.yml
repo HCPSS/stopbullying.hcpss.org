@@ -1,0 +1,29 @@
+uuid: eb5c9dcc-2ce8-4ab9-813f-70d2451083d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_locations
+    - gentle_panther.report_type.bullying_harassment
+    - taxonomy.vocabulary.locations
+id: report.bullying_harassment.field_locations
+field_name: field_locations
+entity_type: report
+bundle: bullying_harassment
+label: 'Where did the incident happen? (Choose all that apply.)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      locations: locations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

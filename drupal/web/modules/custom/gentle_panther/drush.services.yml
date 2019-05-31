@@ -1,0 +1,5 @@
+services:
+  bullying.commands:
+    class: \Drupal\gentle_panther\Commands\GentlePantherCommands
+    tags:
+      - { name: drush.command }

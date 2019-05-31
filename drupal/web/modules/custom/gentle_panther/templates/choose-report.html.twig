@@ -1,0 +1,9 @@
+{% for type in report_types %}
+  <article>
+    <h2>{{ type.name }}</h2>
+    <p>{{ type.description }}</p>
+    <p>
+      <a href="{{ path(type.route) }}">Make a {{ type.name }} Report</a>
+    </p>
+  </article>
+{% endfor %}

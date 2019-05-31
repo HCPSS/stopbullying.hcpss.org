@@ -1,0 +1,18 @@
+uuid: a441135e-2cf2-439c-84d2-75a727e1082f
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_medical_attention
+field_name: field_medical_attention
+entity_type: report
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

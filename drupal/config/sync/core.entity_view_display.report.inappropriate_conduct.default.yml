@@ -1,0 +1,67 @@
+uuid: a93e9628-7a62-40a9-8bd0-84e1912670b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.report.inappropriate_conduct.field_description
+    - field.field.report.inappropriate_conduct.field_location
+    - field.field.report.inappropriate_conduct.field_offenders
+    - field.field.report.inappropriate_conduct.field_reporter
+    - gentle_panther.report_type.inappropriate_conduct
+  module:
+    - entity_reference_revisions
+    - user
+id: report.inappropriate_conduct.default
+targetEntityType: report
+bundle: inappropriate_conduct
+mode: default
+content:
+  field_description:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_location:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_offenders:
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_reporter:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

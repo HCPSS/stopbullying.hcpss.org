@@ -1,0 +1,82 @@
+uuid: 9fcede2c-739a-4af8-b80b-41a17fc46f72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.report.inappropriate_conduct.field_description
+    - field.field.report.inappropriate_conduct.field_location
+    - field.field.report.inappropriate_conduct.field_offenders
+    - field.field.report.inappropriate_conduct.field_reporter
+    - gentle_panther.report_type.inappropriate_conduct
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_please_tell_us_about_yours:
+      children:
+        - field_reporter
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: report-field-group
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Please tell us about yourself'
+      region: content
+id: report.inappropriate_conduct.default
+targetEntityType: report
+bundle: inappropriate_conduct
+mode: default
+content:
+  field_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_location:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_offenders:
+    weight: 2
+    settings:
+      title: Offender
+      title_plural: Offenders
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: person
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_reporter:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: reporter
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  name: true
+  user_id: true

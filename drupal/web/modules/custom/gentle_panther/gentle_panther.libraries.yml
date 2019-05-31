@@ -1,0 +1,15 @@
+gentle_panther.report.form:
+  version: VERSION
+  css:
+    theme:
+      css/report.form.css: {}
+gentle_panther.person.widget:
+  version: VERSION
+  css:
+    theme:
+      css/person.widget.css: {}
+gentle_panther.reporter.widget:
+  version: VERSION
+  css:
+    theme:
+      css/reporter.widget.css: {}

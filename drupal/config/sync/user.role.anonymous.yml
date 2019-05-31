@@ -12,6 +12,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'add report entities'
   - 'create bullying_report content'
   - 'search content'
   - 'use text format restricted_html'

@@ -1,0 +1,20 @@
+uuid: 1824f3f6-1899-4a4b-940b-229201a05f53
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+    - taxonomy
+id: report.field_bullying_type
+field_name: field_bullying_type
+entity_type: report
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

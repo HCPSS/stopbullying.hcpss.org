@@ -1,0 +1,19 @@
+uuid: 56819bfb-1157-4415-a692-a32e2c5a3c0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_description
+    - gentle_panther.report_type.inappropriate_conduct
+id: report.inappropriate_conduct.field_description
+field_name: field_description
+entity_type: report
+bundle: inappropriate_conduct
+label: 'Describe the incident(s)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

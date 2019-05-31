@@ -1,0 +1,32 @@
+uuid: c24a494e-23b5-47bf-af21-136f92807ce2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.locations.field_physical
+    - taxonomy.vocabulary.locations
+  module:
+    - text
+id: taxonomy_term.locations.default
+targetEntityType: taxonomy_term
+bundle: locations
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_physical:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

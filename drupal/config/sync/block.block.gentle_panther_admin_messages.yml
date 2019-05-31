@@ -1,0 +1,22 @@
+uuid: 7934eb62-5217-4310-89f5-7894eab58e57
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gentle_panther_admin
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: gentle_panther_admin_messages
+theme: gentle_panther_admin
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

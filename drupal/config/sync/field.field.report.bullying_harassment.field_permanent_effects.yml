@@ -1,0 +1,23 @@
+uuid: 59a36ca9-e833-4a32-a005-24ccbc56ed52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_permanent_effects
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_permanent_effects
+field_name: field_permanent_effects
+entity_type: report
+bundle: bullying_harassment
+label: 'I believe there will be permanent effects'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

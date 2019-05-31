@@ -42,7 +42,7 @@ function bullying_field_widget_multivalue_form_alter(array &$elements, FormState
   if (!$elements['#cardinality_multiple']) {
     return;
   }
-
+  
   switch ($elements['#field_name']) {
     case 'field_offenders':
       $elements['add_more']['#value'] = t('Add another offender');

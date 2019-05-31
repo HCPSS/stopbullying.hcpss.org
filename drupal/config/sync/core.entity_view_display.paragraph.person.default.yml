@@ -1,0 +1,51 @@
+uuid: d9a43151-cd75-474e-a1bd-c8ec14cc1a1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_name
+    - field.field.paragraph.person.field_school
+    - field.field.paragraph.person.field_student
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_age:
+    weight: 2
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_name:
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_school:
+    weight: 1
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_student:
+    weight: 3
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

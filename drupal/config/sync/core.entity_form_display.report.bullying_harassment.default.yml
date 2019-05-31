@@ -1,0 +1,265 @@
+uuid: a30f43b0-4ad6-4253-9636-cc48a91e723a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.report.bullying_harassment.field_additional_information
+    - field.field.report.bullying_harassment.field_aggression_description
+    - field.field.report.bullying_harassment.field_bullying_type
+    - field.field.report.bullying_harassment.field_cause
+    - field.field.report.bullying_harassment.field_caused_absences
+    - field.field.report.bullying_harassment.field_dates
+    - field.field.report.bullying_harassment.field_days_absent
+    - field.field.report.bullying_harassment.field_description
+    - field.field.report.bullying_harassment.field_locations
+    - field.field.report.bullying_harassment.field_medical_attention
+    - field.field.report.bullying_harassment.field_offenders
+    - field.field.report.bullying_harassment.field_permanent_effects
+    - field.field.report.bullying_harassment.field_physical_injury
+    - field.field.report.bullying_harassment.field_psych_services_sought
+    - field.field.report.bullying_harassment.field_psychological_injury
+    - field.field.report.bullying_harassment.field_reporter
+    - field.field.report.bullying_harassment.field_targets
+    - field.field.report.bullying_harassment.field_witnesses
+    - gentle_panther.report_type.bullying_harassment
+  module:
+    - datetime
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_reporter:
+      children:
+        - field_reporter
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: report-field-group
+        required_fields: false
+      label: 'Please tell us about yourself'
+      region: content
+    group_physical_injury:
+      children:
+        - field_physical_injury
+        - field_medical_attention
+        - field_permanent_effects
+      parent_name: ''
+      weight: 10
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: multifield-checkbox-group
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Physical Injury'
+      region: content
+    group_psychological_injury:
+      children:
+        - field_psychological_injury
+        - field_psych_services_sought
+      parent_name: ''
+      weight: 11
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: multifield-checkbox-group
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Psychological Injury'
+      region: content
+    group_absences:
+      children:
+        - field_caused_absences
+        - field_days_absent
+      parent_name: ''
+      weight: 12
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: multifield-checkbox-group
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Absences
+      region: content
+id: report.bullying_harassment.default
+targetEntityType: report
+bundle: bullying_harassment
+mode: default
+content:
+  field_additional_information:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_aggression_description:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_bullying_type:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_cause:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_caused_absences:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_dates:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_days_absent:
+    weight: 14
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_description:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_locations:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_medical_attention:
+    weight: 12
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_offenders:
+    weight: 3
+    settings:
+      title: Offender
+      title_plural: Offenders
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: person
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_permanent_effects:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_physical_injury:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_psych_services_sought:
+    weight: 15
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_psychological_injury:
+    weight: 14
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_reporter:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_targets:
+    weight: 1
+    settings:
+      title: taget/victim
+      title_plural: tagets/victims
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: abbreviated
+      default_paragraph_type: person
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_witnesses:
+    weight: 2
+    settings:
+      title: Witness
+      title_plural: Witnesses
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: abbreviated
+      default_paragraph_type: person
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  name: true
+  user_id: true

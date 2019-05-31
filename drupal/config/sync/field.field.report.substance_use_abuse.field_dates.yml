@@ -1,0 +1,21 @@
+uuid: 2d0a4ecf-e74d-4aef-8161-44b53fc837d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_dates
+    - gentle_panther.report_type.substance_use_abuse
+  module:
+    - datetime
+id: report.substance_use_abuse.field_dates
+field_name: field_dates
+entity_type: report
+bundle: substance_use_abuse
+label: 'On what date(s) did the incident happen?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

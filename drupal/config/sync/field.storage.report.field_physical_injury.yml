@@ -1,0 +1,18 @@
+uuid: 20dcc5b8-148f-4746-8605-f2d9dbb94c03
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_physical_injury
+field_name: field_physical_injury
+entity_type: report
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

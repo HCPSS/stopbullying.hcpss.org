@@ -1,0 +1,20 @@
+uuid: 3680b114-007a-4724-8e8b-ad8a2512fc12
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - gentle_panther
+id: report.field_dates
+field_name: field_dates
+entity_type: report
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

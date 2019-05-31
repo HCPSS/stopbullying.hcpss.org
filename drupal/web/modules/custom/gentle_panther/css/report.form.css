@@ -1,0 +1,29 @@
+form table tr th {
+  background-color: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.field-multiple-table .field-label h4.label {
+  padding: 0;
+}
+
+.report-form .field--widget-string-textarea {
+  padding: 0;
+}
+
+.multifield-checkbox-group .option {
+  font-weight: normal;
+}
+
+.multifield-checkbox-group .field--type-boolean,
+.multifield-checkbox-group .field--type-boolean .form-item,
+.page label,
+.multifield-checkbox-group h4.label {
+  margin: 0;
+}
+
+
+.report-form .form-actions {
+  padding: 0;
+}

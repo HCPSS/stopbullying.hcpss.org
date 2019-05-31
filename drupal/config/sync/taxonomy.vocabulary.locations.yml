@@ -1,0 +1,8 @@
+uuid: 99183711-bc91-4bf2-a9c2-b290bf06dfef
+langcode: en
+status: true
+dependencies: {  }
+name: Locations
+vid: locations
+description: 'Locations related to HCPSS properties.'
+weight: 0

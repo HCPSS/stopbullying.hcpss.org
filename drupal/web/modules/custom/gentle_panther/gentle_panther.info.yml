@@ -1,0 +1,8 @@
+name: 'Gentle Panther'
+type: module
+description: 'Bullying, Harassment, or Intimidation Reporting.'
+core: 8.x
+package: 'HCPSS'
+dependencies:
+  - telephone
+  - hcpss_school_vocabulary

@@ -1,0 +1,8 @@
+uuid: 7382d631-cb50-4ccd-9931-06b0f89f323a
+langcode: en
+status: true
+dependencies: {  }
+name: Roles
+vid: roles
+description: 'The roles people have in relationship to HCPSS.'
+weight: 0

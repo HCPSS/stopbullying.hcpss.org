@@ -1,0 +1,11 @@
+entity.report.add_form:
+  route_name: entity.report.add_page
+  title: 'Add Report'
+  appears_on:
+    - entity.report.collection
+entity.report_type.add_form:
+  route_name: entity.report_type.add_form
+  title: 'Add Report type'
+  appears_on:
+    - entity.report_type.collection
+

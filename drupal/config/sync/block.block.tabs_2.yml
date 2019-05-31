@@ -1,0 +1,20 @@
+uuid: ad410c2a-6724-454f-b1bc-979cbc32e4c7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gentle_panther_admin
+id: tabs_2
+theme: gentle_panther_admin
+region: pre_content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary Tabs'
+  provider: core
+  label_display: '0'
+  primary: false
+  secondary: true
+visibility: {  }

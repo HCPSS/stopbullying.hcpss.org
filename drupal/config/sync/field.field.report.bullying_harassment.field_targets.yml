@@ -1,0 +1,34 @@
+uuid: 3724aa1b-9f12-4a9c-b499-47e1da380be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_targets
+    - gentle_panther.report_type.bullying_harassment
+    - paragraphs.paragraphs_type.person
+  module:
+    - entity_reference_revisions
+id: report.bullying_harassment.field_targets
+field_name: field_targets
+entity_type: report
+bundle: bullying_harassment
+label: 'Names of student target/victim(s)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      person: person
+    target_bundles_drag_drop:
+      person:
+        enabled: true
+        weight: 3
+      reporter:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

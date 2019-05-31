@@ -1,0 +1,103 @@
+uuid: 1a39bfca-9012-4808-8361-fbb3aa7cbbfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.report.substance_use_abuse.field_dates
+    - field.field.report.substance_use_abuse.field_description
+    - field.field.report.substance_use_abuse.field_location
+    - field.field.report.substance_use_abuse.field_offenders
+    - field.field.report.substance_use_abuse.field_reporter
+    - field.field.report.substance_use_abuse.field_witnesses
+    - gentle_panther.report_type.substance_use_abuse
+  module:
+    - datetime
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_please_tell_us_about_yours:
+      children:
+        - field_reporter
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: report-field-group
+        element: div
+        show_label: true
+        label_element: h4
+        label_element_classes: label
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Please tell us about yourself'
+      region: content
+id: report.substance_use_abuse.default
+targetEntityType: report
+bundle: substance_use_abuse
+mode: default
+content:
+  field_dates:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_location:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_offenders:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: abbreviated
+      default_paragraph_type: person
+    third_party_settings: {  }
+    region: content
+  field_reporter:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_witnesses:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: abbreviated
+      default_paragraph_type: person
+    third_party_settings: {  }
+    region: content
+hidden:
+  name: true
+  user_id: true

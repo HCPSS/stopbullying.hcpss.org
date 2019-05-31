@@ -1,0 +1,44 @@
+uuid: e70c27d5-0a7b-4107-b367-363ab1910972
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.paragraph.abbreviated
+    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_name
+    - field.field.paragraph.person.field_school
+    - field.field.paragraph.person.field_student
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.abbreviated
+targetEntityType: paragraph
+bundle: person
+mode: abbreviated
+content:
+  field_age:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_school:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  field_student: true
+  status: true

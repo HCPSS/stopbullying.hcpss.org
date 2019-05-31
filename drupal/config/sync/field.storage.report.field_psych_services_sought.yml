@@ -1,0 +1,18 @@
+uuid: 68554996-6313-4631-8ab9-3365e44cdf30
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_psych_services_sought
+field_name: field_psych_services_sought
+entity_type: report
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

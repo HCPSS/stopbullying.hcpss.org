@@ -1,0 +1,20 @@
+uuid: 7e55e3d2-ecef-42fd-88a6-b67f356943d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+    - taxonomy
+id: report.field_locations
+field_name: field_locations
+entity_type: report
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

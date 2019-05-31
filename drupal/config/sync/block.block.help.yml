@@ -1,0 +1,20 @@
+uuid: 8cfad27b-d02a-4bdf-a5ff-aa2ba9fb28a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - gentle_panther_admin
+id: help
+theme: gentle_panther_admin
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

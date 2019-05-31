@@ -1,0 +1,45 @@
+# Report menu items definition
+
+# Report type menu items definition
+entity.report_type.collection:
+  title: 'Report type'
+  route_name: entity.report_type.collection
+  description: 'List Report type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
+gentle_panther.home:
+  title: Home
+  parent: system.menu
+  route_name: '<front>'
+  menu_name: main
+
+gentle_panther.report:
+  title: 'Make a Report'
+  parent: system.menu
+  route_name: gentle_panther.report
+  menu_name: main
+
+gentle_panther.report.bullying:
+  title: 'Bullying, Harassment, or Intimidation'
+  parent: gentle_panther.report
+  route_name: gentle_panther.report.bullying
+  menu_name: main
+  
+gentle_panther.report.inappropriate_conduct:
+  title: 'Inappropriate Conduct'
+  parent: gentle_panther.report
+  route_name: gentle_panther.report.inappropriate_conduct
+  menu_name: main
+
+gentle_panther.report.potential_altercation_threats:
+  title: 'Potential Altercation/Threats'
+  parent: gentle_panther.report
+  route_name: gentle_panther.report.potential_altercation_threats
+  menu_name: main
+
+gentle_panther.report.substance_use_abuse:
+  title: 'Substance Use/Abuse'
+  parent: gentle_panther.report
+  route_name: gentle_panther.report.substance_use_abuse
+  menu_name: main

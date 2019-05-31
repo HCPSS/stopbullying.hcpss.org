@@ -1,0 +1,20 @@
+uuid: 9c1b38be-536d-494c-9ef3-123ee9334995
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_days_absent
+field_name: field_days_absent
+entity_type: report
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

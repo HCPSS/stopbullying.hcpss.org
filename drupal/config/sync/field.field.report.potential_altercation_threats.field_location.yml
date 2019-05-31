@@ -1,0 +1,19 @@
+uuid: c1dbcb88-f98c-4b03-94bd-3f39633f9e86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_location
+    - gentle_panther.report_type.potential_altercation_threats
+id: report.potential_altercation_threats.field_location
+field_name: field_location
+entity_type: report
+bundle: potential_altercation_threats
+label: Location
+description: 'Please be as specific as possible.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

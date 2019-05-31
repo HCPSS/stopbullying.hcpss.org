@@ -1,0 +1,19 @@
+uuid: 4063fc2d-7c16-4c11-809c-70920bf64ccb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_location
+    - gentle_panther.report_type.inappropriate_conduct
+id: report.inappropriate_conduct.field_location
+field_name: field_location
+entity_type: report
+bundle: inappropriate_conduct
+label: Location
+description: 'Please be as specific as possible.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

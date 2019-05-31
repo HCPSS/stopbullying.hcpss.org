@@ -1,0 +1,19 @@
+uuid: 1e6a2b13-f24c-4049-b600-2a359b65ef23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_aggression_description
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_aggression_description
+field_name: field_aggression_description
+entity_type: report
+bundle: bullying_harassment
+label: 'Describe the physical aggression'
+description: 'You described the incident as including Any bullying, harassment, or intimidation that involves physical aggression. Please describe.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

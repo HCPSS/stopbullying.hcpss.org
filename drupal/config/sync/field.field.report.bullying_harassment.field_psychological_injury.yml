@@ -1,0 +1,23 @@
+uuid: 4ed9ec00-15fe-44b2-a4c6-1adafcb7e792
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_psychological_injury
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_psychological_injury
+field_name: field_psychological_injury
+entity_type: report
+bundle: bullying_harassment
+label: 'A psychological injury resulted from this incident'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,9 @@
+uuid: 92938950-bf93-4eb8-b3e7-bb90ba0975c0
+langcode: en
+status: true
+dependencies: {  }
+id: reporter
+label: Reporter
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: 3c273fd0-7ab2-4a12-9d0e-fb188f6b810a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_dates
+    - gentle_panther.report_type.bullying_harassment
+  module:
+    - datetime
+id: report.bullying_harassment.field_dates
+field_name: field_dates
+entity_type: report
+bundle: bullying_harassment
+label: 'On what date(s) did the incident happen?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

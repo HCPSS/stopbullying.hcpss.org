@@ -1,0 +1,58 @@
+uuid: 2a5857cb-9e8a-4fac-a64a-e6f993aa38b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.reporter.field_email
+    - field.field.paragraph.reporter.field_name
+    - field.field.paragraph.reporter.field_phone
+    - field.field.paragraph.reporter.field_role
+    - field.field.paragraph.reporter.field_school
+    - paragraphs.paragraphs_type.reporter
+  module:
+    - telephone
+id: paragraph.reporter.default
+targetEntityType: paragraph
+bundle: reporter
+mode: default
+content:
+  field_email:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_name:
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_phone:
+    weight: 1
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_role:
+    weight: 4
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_school:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

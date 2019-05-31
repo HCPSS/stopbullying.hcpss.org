@@ -1,0 +1,19 @@
+uuid: 9e8c06c9-dd0d-443a-a968-6c40701e0f7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_location
+    - gentle_panther.report_type.substance_use_abuse
+id: report.substance_use_abuse.field_location
+field_name: field_location
+entity_type: report
+bundle: substance_use_abuse
+label: Location
+description: 'Please be as specific as possible.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

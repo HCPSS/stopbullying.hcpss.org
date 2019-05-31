@@ -1,0 +1,49 @@
+uuid: ad1026a4-daf3-4239-8d81-15bd5b204e62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_name
+    - field.field.paragraph.person.field_school
+    - field.field.paragraph.person.field_student
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_age:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_school:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_student:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

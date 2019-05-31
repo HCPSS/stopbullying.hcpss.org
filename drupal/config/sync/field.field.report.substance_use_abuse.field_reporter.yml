@@ -1,0 +1,34 @@
+uuid: e2f91ce1-73af-466f-91ad-52a165aa99c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_reporter
+    - gentle_panther.report_type.substance_use_abuse
+    - paragraphs.paragraphs_type.reporter
+  module:
+    - entity_reference_revisions
+id: report.substance_use_abuse.field_reporter
+field_name: field_reporter
+entity_type: report
+bundle: substance_use_abuse
+label: Reporter
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      reporter: reporter
+    target_bundles_drag_drop:
+      person:
+        weight: 3
+        enabled: false
+      reporter:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

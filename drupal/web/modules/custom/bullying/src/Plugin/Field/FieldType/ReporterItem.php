@@ -6,11 +6,9 @@ use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\TypedData\DataDefinition;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Component\Utility\Random;
-use Drupal\bullying\Service\SchoolQueryService;
-use Drupal\bullying\Service\NameGeneratorService;
+use Drupal\gentle_panther\Service\NameGeneratorService;
 
 /**
  * Provide a person field type.
@@ -49,29 +47,34 @@ class ReporterItem extends FieldItemBase implements FieldItemInterface {
   }
 
   /**
+   * Get all taxonomy terms in the vocabulary.
+   * 
+   * @param string $vid
+   * @return array
+   */
+  private static function getAllTermsOfType(string $vid) : array {
+    $terms = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadTree($vid, 0, NULL, TRUE);
+    
+    return $terms;
+  }
+  
+  /**
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-    $random = new Random();
-    $schools = SchoolQueryService::getNames();
+    $random  = new Random();
+    $roles   = self::getAllTermsOfType('roles');
+    $schools = self::getAllTermsOfType('schools');
 
-    $roles = [
-      'Student',
-      'Parent/guardian of a student',
-      'Close adult relative of a student',
-      'School Staff',
-      'Bystander',
-    ];
-
-    $values = [
-      'name' => NameGeneratorService::generate(),
-      'email' => $random->name() . '@example.com',
-      'school' => $schools[array_rand($schools, 1)],
+    return [
+      'name'      => NameGeneratorService::generate(),
+      'email'     => $random->name() . '@example.com',
+      'school'    => $schools[array_rand($schools, 1)]->id(),
       'telephone' => rand(pow(10, 8), pow(10, 9) - 1),
-      'role' => $roles[array_rand($roles, 1)],
+      'role'      => $roles[array_rand($roles, 1)]->id(),
     ];
-
-    return $values;
   }
 
   /**
@@ -95,15 +98,17 @@ class ReporterItem extends FieldItemBase implements FieldItemInterface {
           'length' => 255,
           'default' => NULL,
         ],
-        'school' => [
-          'type' => 'varchar',
-          'length' => 255,
+        'school_id' => [
+          'type' => 'int',
+          'unsigned' => TRUE,
           'default' => NULL,
+          'not null' => FALSE,
         ],
-        'role' => [
-          'type' => 'varchar',
-          'length' => 255,
+        'role_id' => [
+          'type' => 'int',
+          'unsigned' => TRUE,
           'default' => NULL,
+          'not null' => FALSE,
         ],
       ],
     ];
@@ -115,10 +120,10 @@ class ReporterItem extends FieldItemBase implements FieldItemInterface {
    */
   public function isEmpty() {
     $name      = $this->get('name')->getValue();
-    $school    = $this->get('school')->getValue();
+    $school    = $this->get('school_id')->getValue();
     $email     = $this->get('email')->getValue();
     $telephone = $this->get('telephone')->getValue();
-    $role      = $this->get('role')->getValue();
+    $role      = $this->get('role_id')->getValue();
 
     return ($name === NULL || $name === '')
       && ($school === NULL || $school === '')

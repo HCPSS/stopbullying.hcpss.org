@@ -1,0 +1,20 @@
+uuid: b8348ed3-4990-4a9c-86af-b62b3c1d49b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gentle_panther_admin
+id: breadcrumbs
+theme: gentle_panther_admin
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 25536949-6b5a-4223-9d88-e7066c2d517d
+langcode: en
+status: true
+dependencies: {  }
+id: short_no_time
+label: 'Short no time'
+locked: false
+pattern: 'D, M jS, Y'

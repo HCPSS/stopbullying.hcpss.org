@@ -1,0 +1,23 @@
+uuid: 6aa802a7-c8be-48fd-a56c-73dfe570e8f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_caused_absences
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_caused_absences
+field_name: field_caused_absences
+entity_type: report
+bundle: bullying_harassment
+label: 'This incident caused the target/victim to be absent from school'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: 5a960216-fb5c-49a2-963e-195b673bd5ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_days_absent
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_days_absent
+field_name: field_days_absent
+entity_type: report
+bundle: bullying_harassment
+label: 'How many days was the target/victim absent from school as a result of the incident?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: days
+field_type: integer

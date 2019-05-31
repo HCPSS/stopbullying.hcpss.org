@@ -1,0 +1,6 @@
+uuid: aa4ae734-d222-482c-91bb-0496b11f71fa
+langcode: en
+status: true
+dependencies: {  }
+id: substance_use_abuse
+label: 'Substance Use/Abuse'

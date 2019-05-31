@@ -1,0 +1,34 @@
+uuid: 2b2ae0eb-c557-4647-8fd1-995ffaf64f30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_reporter
+    - gentle_panther.report_type.potential_altercation_threats
+    - paragraphs.paragraphs_type.reporter
+  module:
+    - entity_reference_revisions
+id: report.potential_altercation_threats.field_reporter
+field_name: field_reporter
+entity_type: report
+bundle: potential_altercation_threats
+label: Reporter
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      reporter: reporter
+    target_bundles_drag_drop:
+      person:
+        weight: 3
+        enabled: false
+      reporter:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions
