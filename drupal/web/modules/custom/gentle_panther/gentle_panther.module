@@ -9,6 +9,11 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\gentle_panther\Entity\ReportInterface;
 use Drupal\Core\Form\FormStateInterface;
 
+function gentle_panther_local_tasks_alter(&$local_tasks) {
+  //dpm($local_tasks);
+  unset($local_tasks['comment.admin']);
+}
+
 /**
  * Implementation of hook_field_widget_multivalue_WIDGET_ID_form_alter().
  */
@@ -112,7 +117,7 @@ function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$el
 /**
  * implementation of hook_form_alter().
  */
-function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form_id) {  
   $matches = [];
   preg_match('/^report_(.+)_form$/', $form_id, $matches);
   

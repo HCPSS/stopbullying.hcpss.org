@@ -756,6 +756,7 @@ display:
           admin_label: 'File usage'
           required: false
       display_extenders: {  }
+      enabled: false
     cache_metadata:
       contexts:
         - 'languages:language_content'

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1536eec80a1ac90d665289135bfc20a4",
+    "content-hash": "8550e2295c7605f511ff9aad06241f82",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3097,6 +3097,70 @@
             "homepage": "https://www.drupal.org/project/field_group",
             "support": {
                 "source": "https://git.drupalcode.org/project/field_group"
+            }
+        },
+        {
+            "name": "drupal/field_group_table",
+            "version": "1.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_group_table.git",
+                "reference": "8.x-1.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_group_table-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "df324820acb0921fc1aa2df4b8951e043b8b5829"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/field_group": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1553071384",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Antonnavi",
+                    "homepage": "https://www.drupal.org/user/875410"
+                },
+                {
+                    "name": "a.ross",
+                    "homepage": "https://www.drupal.org/user/968198"
+                },
+                {
+                    "name": "bforchhammer",
+                    "homepage": "https://www.drupal.org/user/216396"
+                },
+                {
+                    "name": "charlie-s",
+                    "homepage": "https://www.drupal.org/user/277960"
+                },
+                {
+                    "name": "webadpro",
+                    "homepage": "https://www.drupal.org/user/708024"
+                }
+            ],
+            "description": "Render fields in a 2-column table.",
+            "homepage": "https://www.drupal.org/project/field_group_table",
+            "support": {
+                "source": "https://git.drupalcode.org/project/field_group_table"
             }
         },
         {
@@ -9366,6 +9430,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/field_group": 5,
+        "drupal/field_group_table": 10,
         "hcpss/hcpss_school_vocabulary": 20,
         "hcpss/parity": 20
     },

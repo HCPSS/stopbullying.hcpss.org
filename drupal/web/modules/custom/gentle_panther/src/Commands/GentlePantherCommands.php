@@ -8,6 +8,8 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\hcpss_school_vocabulary\Commands\HcpssSchoolVocabularyCommands;
 use Drupal\gentle_panther\Entity\Report;
 use Drupal\gentle_panther\Generator\BullyingGenerator;
+use Drupal\gentle_panther\Generator\PotentialAltercationGenerator;
+use Drupal\gentle_panther\Generator\ReportGenerator;
 
 /**
  * A drush command file.
@@ -21,12 +23,18 @@ class GentlePantherCommands extends DrushCommands {
    * @usage gentle-panther:generate:reports
    */
   public function generateReports() {
-    $generator = new BullyingGenerator();
+    $generators = [];
+    $generators[] = new ReportGenerator('bullying_harassment');
+    $generators[] = new ReportGenerator('inappropriate_conduct');
+    $generators[] = new ReportGenerator('potential_altercation_threats');
+    $generators[] = new ReportGenerator('substance_use_abuse');
     
-    $generator->deleteAll();
-    
-    for ($i = 0; $i < 250; $i++) {
-      $generator->generate();
+    foreach ($generators as $generator) {
+      $generator->deleteAll();
+      
+      for ($i = 0; $i < 250; $i++) {
+        $generator->generate();
+      }
     }
   }
   

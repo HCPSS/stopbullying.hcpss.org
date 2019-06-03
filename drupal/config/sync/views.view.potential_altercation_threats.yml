@@ -1,4 +1,4 @@
-uuid: 171284ef-8a93-4074-9075-4cdf85f1a7fe
+uuid: df286769-15f1-45d8-9017-e2cfaf2ba40c
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,9 @@ dependencies:
     - field.storage.paragraph.field_name
     - field.storage.paragraph.field_school
     - field.storage.report.field_dates
+    - field.storage.report.field_description
+    - field.storage.report.field_location
+    - gentle_panther.report_type.potential_altercation_threats
     - taxonomy.vocabulary.schools
   module:
     - datetime
@@ -13,8 +16,8 @@ dependencies:
     - paragraphs
     - taxonomy
     - user
-id: report_overview
-label: 'Report Overview'
+id: potential_altercation_threats
+label: 'Potential Altercation/Threats'
 module: views
 description: ''
 tag: ''
@@ -76,6 +79,79 @@ display:
           quantity: 9
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            name: name
+            created: created
+            field_name: field_name
+            field_dates: field_dates
+            field_school: field_school
+            field_location: field_location
+            field_description: field_description
+            operations: operations
+          info:
+            name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_dates:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_school:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_location:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_description:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
@@ -143,71 +219,6 @@ display:
           field_api_classes: false
           entity_type: null
           entity_field: name
-          plugin_id: field
-        type:
-          id: type
-          table: report_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Type
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: report
-          entity_field: type
           plugin_id: field
         created:
           id: created
@@ -466,6 +477,131 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_location:
+          id: field_location
+          table: report__field_location
+          field: field_location
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Location
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_description:
+          id: field_description
+          table: report__field_description
+          field: field_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 100
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         operations:
           id: operations
           table: report
@@ -526,9 +662,10 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            potential_altercation_threats: potential_altercation_threats
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: type_op
             label: 'Report Type'
@@ -678,7 +815,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<ul class=\"action-links\">\r\n  <li><a href=\"/admin/content/report/add\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/content/report/add\">Add Report</a></li>\r\n</ul>"
+          content: "<ul class=\"action-links\">\r\n  <li><a href=\"/admin/content/report/add/potential_altercation_threats\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/content/report/add\">Add Report</a></li>\r\n</ul>"
           plugin_id: text_custom
       footer:
         result:
@@ -726,6 +863,8 @@ display:
         - 'config:field.storage.paragraph.field_name'
         - 'config:field.storage.paragraph.field_school'
         - 'config:field.storage.report.field_dates'
+        - 'config:field.storage.report.field_description'
+        - 'config:field.storage.report.field_location'
   page_1:
     display_plugin: page
     id: page_1
@@ -733,17 +872,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/content/report
+      path: admin/content/potential_altercation_threats
       menu:
         type: tab
-        title: Reports
+        title: 'Potential Altercation/Threats'
         description: ''
         expanded: false
         parent: ''
-        weight: -1
+        weight: 0
         context: '0'
         menu_name: admin
-      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -757,3 +895,5 @@ display:
         - 'config:field.storage.paragraph.field_name'
         - 'config:field.storage.paragraph.field_school'
         - 'config:field.storage.report.field_dates'
+        - 'config:field.storage.report.field_description'
+        - 'config:field.storage.report.field_location'

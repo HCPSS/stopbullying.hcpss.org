@@ -1,0 +1,21 @@
+uuid: 87b33d78-2ec6-4bf6-851b-e4f14e529b07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_dates
+    - gentle_panther.report_type.inappropriate_conduct
+  module:
+    - datetime
+id: report.inappropriate_conduct.field_dates
+field_name: field_dates
+entity_type: report
+bundle: inappropriate_conduct
+label: 'On what date(s) did the incident happen?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

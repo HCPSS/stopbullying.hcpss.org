@@ -25,13 +25,43 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
+    - field_group
+third_party_settings:
+  field_group:
+    group_table:
+      children:
+        - field_physical_injury
+        - field_permanent_effects
+        - field_medical_attention
+        - field_caused_absences
+        - field_days_absent
+        - field_psychological_injury
+        - field_psych_services_sought
+      parent_name: ''
+      weight: 18
+      format_type: field_group_table
+      format_settings:
+        id: ''
+        classes: ''
+        label_visibility: '1'
+        desc: ''
+        desc_visibility: '1'
+        first_column: ''
+        second_column: ''
+        empty_label_behavior: '1'
+        table_row_striping: 0
+        always_show_field_label: 0
+        always_show_field_value: 0
+        empty_field_placeholder: ''
+      label: Table
+      region: content
 id: report.bullying_harassment.default
 targetEntityType: report
 bundle: bullying_harassment
 mode: default
 content:
   field_additional_information:
-    weight: 18
+    weight: 19
     label: above
     settings: {  }
     third_party_settings: {  }

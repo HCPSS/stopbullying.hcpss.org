@@ -10,3 +10,6 @@
   .report .paragraph:first-of-type {
     margin-top: 0; }
 
+#views-exposed-form-bullying-harassment-page-1 .form--inline > .form-item {
+  float: none; }
+

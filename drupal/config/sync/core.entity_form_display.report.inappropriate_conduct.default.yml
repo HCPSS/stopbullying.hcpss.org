@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.report.inappropriate_conduct.field_dates
     - field.field.report.inappropriate_conduct.field_description
     - field.field.report.inappropriate_conduct.field_location
     - field.field.report.inappropriate_conduct.field_offenders
     - field.field.report.inappropriate_conduct.field_reporter
     - gentle_panther.report_type.inappropriate_conduct
   module:
+    - datetime
     - field_group
     - paragraphs
 third_party_settings:
@@ -37,8 +39,14 @@ targetEntityType: report
 bundle: inappropriate_conduct
 mode: default
 content:
-  field_description:
+  field_dates:
     weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description:
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -54,7 +62,7 @@ content:
     type: string_textfield
     region: content
   field_offenders:
-    weight: 2
+    weight: 1
     settings:
       title: Offender
       title_plural: Offenders
