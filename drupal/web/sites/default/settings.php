@@ -790,13 +790,3 @@ $databases['default']['default'] = array (
   'username' => getenv('MYSQL_USER'),
 );
 $settings['install_profile'] = 'minimal';
-$databases['default']['default'] = array (
-  'database' => 'drupal',
-  'username' => 'drupal',
-  'password' => 'drupal',
-  'prefix' => '',
-  'host' => 'db',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
