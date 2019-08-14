@@ -44,6 +44,7 @@
 		"drupal/disable_messages": "^1.1",
 		"drupal/field_group": "^3.0@RC",
 		"drupal/field_group_table": "^1.0@beta",
+		"drupal/jsonapi_extras": "^3.9",
 		"drupal/node_view_permissions": "^1.2",
 		"drupal/paragraphs": "^1.8",
 		"drupal/simple_oauth": "^3.14",

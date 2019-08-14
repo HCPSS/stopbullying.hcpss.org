@@ -8,4 +8,6 @@ weight: 3
 is_admin: null
 permissions:
   - 'delete any bullying_report content'
+  - 'delete report entities'
   - 'view any bullying_report content'
+  - 'view published report entities'
