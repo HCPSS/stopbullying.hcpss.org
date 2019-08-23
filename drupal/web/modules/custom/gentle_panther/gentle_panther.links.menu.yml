@@ -21,7 +21,7 @@ gentle_panther.report:
   menu_name: main
 
 gentle_panther.report.bullying:
-  title: 'Bullying, Harassment, or Intimidation'
+  title: 'Report Bullying, Harassment, or Intimidation'
   parent: gentle_panther.report
   route_name: gentle_panther.report.bullying
   menu_name: main
