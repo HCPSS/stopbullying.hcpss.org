@@ -10,8 +10,52 @@ use Drupal\gentle_panther\Entity\ReportInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 function gentle_panther_local_tasks_alter(&$local_tasks) {
-  //dpm($local_tasks);
   unset($local_tasks['comment.admin']);
+}
+
+/**
+ * Process callback for anonymous reports.
+ */
+function _gentle_panther_reporter_handler(array $form, FormStateInterface $form_state) {
+  $reporter = $form_state->getValue('field_reporter');
+  
+  if ($reporter[0]['subform']['anonymous']) {
+    $form_state->unsetValue('field_reporter');
+    
+    $reporter[0]['subform']['field_email'][0]['value'] = '';
+    $reporter[0]['subform']['field_name'][0]['value'] = '';
+    $reporter[0]['subform']['field_phone'][0]['value'] = '';
+    $reporter[0]['subform']['field_role'] = [];
+    $reporter[0]['subform']['field_school'][0]['target_id'] = NULL;
+    
+    $form_state->setValue('field_reporter', $reporter);
+  }
+}
+
+/**
+ * Add a form handler.
+ *
+ * @param array $form
+ * @param string $handler
+ * @param boolean $prepend
+ *   Set to true to put the handler in the beginning of the array.
+ */
+function _gentle_panther_add_form_handler(array &$form, string $handler, $prepend = FALSE) : void {
+  foreach (array_keys($form['actions']) as $action) {
+    if (
+      $action != 'preview' &&
+      isset($form['actions'][$action]['#type']) &&
+      $form['actions'][$action]['#type'] === 'submit'
+    ) {
+      if ($prepend) {
+        $handlers = $form['actions'][$action]['#submit'];
+        array_unshift($handlers, $handler);
+        $form['actions'][$action]['#submit'] = $handlers;
+      } else {
+        $form['actions'][$action]['#submit'][] = $handler;
+      }       
+    }
+  }
 }
 
 /**
@@ -21,11 +65,11 @@ function gentle_panther_field_widget_multivalue_form_alter(array &$elements, For
   if (!array_key_exists('#cardinality_multiple', $elements)) {
     return;
   }
-  
+
   if (!$elements['#cardinality_multiple']) {
     return;
   }
-  
+
   switch ($elements['#field_name']) {
     case 'field_offenders':
       $elements['add_more']['add_more_button_person']['#value'] = t('Add another offender');
@@ -44,7 +88,7 @@ function gentle_panther_field_widget_multivalue_form_alter(array &$elements, For
 
 /**
  * Alter the widget for reporters.
- * 
+ *
  * @param array $element
  * @param int $delta
  */
@@ -63,7 +107,7 @@ function _gentle_panther_alter_reporter_widget(&$element, $delta) {
       ],
     ],
   ];
-  
+
   $element['subform']['anonymous'] = [
     '#type' => 'checkbox',
     '#default_value' => FALSE,
@@ -71,7 +115,7 @@ function _gentle_panther_alter_reporter_widget(&$element, $delta) {
     '#weight' => 100,
     '#label_attributes' => ['style' => 'font-weight: normal;']
   ];
-  
+
   foreach (['name', 'phone', 'email', 'school', 'role'] as $field) {
     $element['subform']['field_' . $field]['#states'] = [
       'visible' => [
@@ -83,7 +127,7 @@ function _gentle_panther_alter_reporter_widget(&$element, $delta) {
 
 /**
  * Alter the person paragraph widget.
- * 
+ *
  * @param array $element
  * @param int $delta
  */
@@ -103,11 +147,11 @@ function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$el
     $element['#attached']['library'][] = 'gentle_panther/gentle_panther.reporter.widget';
     _gentle_panther_alter_reporter_widget($element, $context['delta']);
   }
-  
+
   if ($element['#paragraph_type'] == 'person') {
     $element['subform']['#attributes']['class'][] = 'person-widget';
     $element['#attached']['library'][] = 'gentle_panther/gentle_panther.person.widget';
-    
+
     if ($context['widget']->getSetting('form_display_mode') == 'default') {
       _gentle_panther_alter_person_widget($element, $context['delta']);
     }
@@ -117,10 +161,10 @@ function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$el
 /**
  * implementation of hook_form_alter().
  */
-function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form_id) {  
+function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $matches = [];
   preg_match('/^report_(.+)_form$/', $form_id, $matches);
-  
+
   if (count($matches) > 1) {
     $form['#attached']['library'][] = 'gentle_panther/gentle_panther.report.form';
     $form['actions']['submit']['#value'] = t('Submit');
@@ -130,7 +174,7 @@ function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form
 /**
  * Implementation of hook_form_FORM_ID_alter().
  */
-function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormStateInterface $form_state, $form_id) {  
+function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $options = $form['field_bullying_type']['widget']['#options'];
   $option = NULL;
   foreach ($options as $id => $markup) {
@@ -139,7 +183,7 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
       break;
     }
   }
-  
+
   if ($option) {
     $form['field_aggression_description']['#states'] = [
       'visible' => [
@@ -147,24 +191,26 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
       ],
     ];
   }
-  
+
   $form['field_permanent_effects']['#states'] = $form['field_medical_attention']['#states'] = [
     'visible' => [
       ':input[name="field_physical_injury[value]"]' => ['checked' => TRUE],
     ],
   ];
-  
+
   $form['field_psych_services_sought']['#states'] = [
     'visible' => [
       ':input[name="field_psychological_injury[value]"]' => ['checked' => TRUE],
     ],
   ];
-  
+
   $form['field_days_absent']['#states'] = [
     'visible' => [
       ':input[name="field_caused_absences[value]"]' => ['checked' => TRUE],
     ],
   ];
+  
+  _gentle_panther_add_form_handler($form, '_gentle_panther_reporter_handler', TRUE);
 }
 
 /**
@@ -190,7 +236,7 @@ function gentle_panther_report_presave(ReportInterface $report) {
   if ($report->isNew()) {
     $time = microtime(TRUE) * 10000;
     $tracking_number = base_convert($time, 10, 32);
-    
+
     $report->setName($tracking_number);
   }
 }
@@ -200,23 +246,23 @@ function gentle_panther_report_presave(ReportInterface $report) {
  */
 function gentle_panther_theme() {
   $theme = [];
-  
+
   $theme['report'] = [
     'render element' => 'elements',
     'file' => 'report.page.inc',
     'template' => 'report',
   ];
-  
+
   $theme['report_content_add_list'] = [
     'render element' => 'content',
     'variables' => ['content' => NULL],
     'file' => 'report.page.inc',
   ];
-  
+
   $theme['choose_report'] = ['variables' => ['report_types' => NULL]];
-  
+
   $theme['gentle_panther'] = ['render element' => 'children'];
-  
+
   return $theme;
 }
 
@@ -233,6 +279,6 @@ function gentle_panther_theme_suggestions_report(array $variables) {
   $suggestions[] = 'report__' . $entity->bundle() . '__' . $sanitized_view_mode;
   $suggestions[] = 'report__' . $entity->id();
   $suggestions[] = 'report__' . $entity->id() . '__' . $sanitized_view_mode;
-  
+
   return $suggestions;
 }

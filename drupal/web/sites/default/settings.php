@@ -729,6 +729,12 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * example.org, with all subdomains included.
  */
 
+$settings['trusted_host_patterns'] = [
+  '^stopbullying\.hcpss\.localhost$',
+  '^10\.216\.209\.84$',
+  '^stopbullying\.hcpss\.org$',
+];
+
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *
@@ -778,7 +784,16 @@ $settings['entity_update_backup'] = TRUE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $settings["file_private_path"] = "/var/www/drupal/files";
+
+if (getenv('DRUPAL_ENV') == 'dev') {
+  $config['config_split.config_split.development_split']['status'] = TRUE;
+}
+else {
+  $config['config_split.config_split.development_split']['status'] = FALSE;
+}
+
 $config_directories['sync'] = '/var/www/drupal/config/sync';
+
 $databases['default']['default'] = array (
   'database' => getenv('MYSQL_DATABASE'),
   'driver' => 'mysql',
@@ -789,4 +804,5 @@ $databases['default']['default'] = array (
   'prefix' => '',
   'username' => getenv('MYSQL_USER'),
 );
+
 $settings['install_profile'] = 'minimal';

@@ -18,7 +18,7 @@ class GentlePantherCommands extends DrushCommands {
 
   /**
    * Create fake reports.
-   * 
+   *
    * @command gentle-panther:generate:reports
    * @usage gentle-panther:generate:reports
    */
@@ -28,19 +28,19 @@ class GentlePantherCommands extends DrushCommands {
     $generators[] = new ReportGenerator('inappropriate_conduct');
     $generators[] = new ReportGenerator('potential_altercation_threats');
     $generators[] = new ReportGenerator('substance_use_abuse');
-    
+
     foreach ($generators as $generator) {
       $generator->deleteAll();
-      
+
       for ($i = 0; $i < 250; $i++) {
         $generator->generate();
       }
     }
   }
-  
+
   /**
    * Seed the locations.
-   * 
+   *
    * @command gentle-panther:seed:locations
    * @usage gentle-panther:seed:locations
    */
@@ -53,7 +53,7 @@ class GentlePantherCommands extends DrushCommands {
       'Via Internet–sent off school property' => FALSE,
       'Via Internet–sent on school property' => FALSE,
     ];
-    
+
     foreach ($locations as $location => $physical) {
       Term::create([
         'vid' => 'locations',
@@ -77,7 +77,7 @@ class GentlePantherCommands extends DrushCommands {
       'School Staff',
       'Student',
     ];
-    
+
     foreach ($roles as $role) {
       Term::create([
         'vid' => 'roles',
@@ -85,10 +85,10 @@ class GentlePantherCommands extends DrushCommands {
       ])->save();
     }
   }
-  
+
   /**
    * Seed the bullying descriptors.
-   * 
+   *
    * @command gentle-panther:seed:bullying-descriptors
    * @usage gentle-panther:seed:bullying-descriptors
    */
@@ -113,7 +113,7 @@ class GentlePantherCommands extends DrushCommands {
       'Sexual in nature',
       'Cyberbullying (e.g. social media including Facebook, Twitter, Vine, Snapchat, Periscope, kik, Instagram, etc.)',
     ];
-    
+
     foreach ($descriptors as $descriptor) {
       Term::create([
         'vid' => 'bullying_descriptors',
@@ -122,7 +122,7 @@ class GentlePantherCommands extends DrushCommands {
       ])->save();
     }
   }
-  
+
   /**
    * Initialize the gentle-panther site.
    *
@@ -133,7 +133,7 @@ class GentlePantherCommands extends DrushCommands {
   public function init() {
     $page = Node::create([
       'type' => 'page',
-      'title' => 'Bullying/Harassment',
+      'title' => 'Home',
       'uid' => 1,
       'body' => [
         'format' => 'basic_html',
@@ -171,11 +171,11 @@ class GentlePantherCommands extends DrushCommands {
       ->getEditable('system.site')
       ->set('page.front', '/node/' . $page->id())
       ->save();
-    
+
     $this->seedBullyingDescriptors();
     $this->seedLocations();
     $this->seedRoles();
-    
+
     $command = new HcpssSchoolVocabularyCommands();
     $command->import();
   }

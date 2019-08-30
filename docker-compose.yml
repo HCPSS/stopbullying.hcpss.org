@@ -1,19 +1,6 @@
 ---
 version: '2'
-
 services:
-
-  mailhog:
-    container_name: gentle_panther_mail
-    image: mailhog/mailhog
-    user: root
-    expose:
-      - "25"
-    ports:
-      - 8028:8025
-    environment:
-      MH_SMTP_BIND_ADDR: 0.0.0.0:25
-
   db:
     container_name: gentle_panther_db
     image: mysql:5.7
@@ -36,8 +23,6 @@ services:
       dockerfile: ./docker/web/Dockerfile
     ports:
       - 8091:80
-    links:
-      - mailhog:ironport.hcpss.org
     volumes:
       - ./drupal:/var/www/drupal
       - ./.credentials:/srv/credentials
@@ -47,3 +32,4 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
+      DRUPAL_ENV: dev

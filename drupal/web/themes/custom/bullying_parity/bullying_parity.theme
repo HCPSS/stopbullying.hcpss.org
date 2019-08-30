@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Implementation of theme_preprocess_html().
+ */
+function bullying_parity_preprocess_html(&$variables) {
+  $variables['head_title']['organization'] = 'Howard County Public Schools';
+
+  // dpm($variables);
+}
+
+/**
  * Implementation of theme_preprocess_datetime_wrapper().
  */
 function bullying_parity_preprocess_datetime_wrapper(&$variables) {
