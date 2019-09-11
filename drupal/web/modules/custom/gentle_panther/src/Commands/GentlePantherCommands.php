@@ -103,7 +103,7 @@ class GentlePantherCommands extends DrushCommands {
       'Intimidating, extorting, or exploiting',
       'Spreading harmful rumors or gossip',
       'Related to the student’s disability',
-      'Related to the student’s perceived sexual orientationRelated to the student’s perceived sexual orientation',
+      'Related to the student’s perceived sexual orientation',
       'Electronic Communication (e.g. E-mail, text, sexting, etc.)',
       'Gang Related',
       'Gang Recruitment',
