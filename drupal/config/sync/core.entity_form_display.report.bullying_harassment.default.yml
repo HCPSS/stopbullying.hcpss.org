@@ -19,6 +19,7 @@ dependencies:
     - field.field.report.bullying_harassment.field_psych_services_sought
     - field.field.report.bullying_harassment.field_psychological_injury
     - field.field.report.bullying_harassment.field_reporter
+    - field.field.report.bullying_harassment.field_school
     - field.field.report.bullying_harassment.field_targets
     - field.field.report.bullying_harassment.field_witnesses
     - gentle_panther.report_type.bullying_harassment
@@ -53,7 +54,7 @@ third_party_settings:
         - field_medical_attention
         - field_permanent_effects
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: html_element
       format_settings:
         id: ''
@@ -73,7 +74,7 @@ third_party_settings:
         - field_psychological_injury
         - field_psych_services_sought
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: html_element
       format_settings:
         id: ''
@@ -93,7 +94,7 @@ third_party_settings:
         - field_caused_absences
         - field_days_absent
       parent_name: ''
-      weight: 12
+      weight: 13
       format_type: html_element
       format_settings:
         id: ''
@@ -114,7 +115,7 @@ bundle: bullying_harassment
 mode: default
 content:
   field_additional_information:
-    weight: 26
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
@@ -122,7 +123,7 @@ content:
     type: string_textarea
     region: content
   field_aggression_description:
-    weight: 6
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -130,13 +131,13 @@ content:
     type: string_textarea
     region: content
   field_bullying_type:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_cause:
-    weight: 9
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -151,7 +152,7 @@ content:
     type: boolean_checkbox
     region: content
   field_dates:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -164,7 +165,7 @@ content:
     type: number
     region: content
   field_description:
-    weight: 8
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -172,7 +173,7 @@ content:
     type: string_textarea
     region: content
   field_locations:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -185,7 +186,7 @@ content:
     type: boolean_checkbox
     region: content
   field_offenders:
-    weight: 3
+    weight: 4
     settings:
       title: Offender
       title_plural: Offenders
@@ -236,8 +237,17 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_targets:
+  field_school:
     weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_targets:
+    weight: 2
     settings:
       title: taget/victim
       title_plural: tagets/victims
@@ -249,7 +259,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_witnesses:
-    weight: 2
+    weight: 3
     settings:
       title: Witness
       title_plural: Witnesses

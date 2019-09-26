@@ -1,18 +1,18 @@
-uuid: 489bea28-d49f-4dea-a6d0-791bd2592374
+uuid: 398ee8a9-7346-4e21-a6ae-5b2bb4344d54
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_school
-    - paragraphs.paragraphs_type.reporter
+    - field.storage.report.field_school
+    - gentle_panther.report_type.bullying_harassment
     - taxonomy.vocabulary.schools
-id: paragraph.reporter.field_school
+id: report.bullying_harassment.field_school
 field_name: field_school
-entity_type: paragraph
-bundle: reporter
-label: School
+entity_type: report
+bundle: bullying_harassment
+label: 'Which school would you like to submit this report to?'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
