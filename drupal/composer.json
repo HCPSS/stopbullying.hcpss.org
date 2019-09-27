@@ -48,6 +48,7 @@
 		"drupal/node_view_permissions": "^1.2",
 		"drupal/paragraphs": "^1.8",
 		"drupal/simple_oauth": "^3.14",
+		"drupal/structure_sync": "^1.16",
 		"drush/drush": "^9.0.0",
 		"hcpss/hcpss_school_vocabulary": "dev-master",
 		"hcpss/parity": "dev-master",
