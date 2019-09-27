@@ -145,6 +145,19 @@ taxonomies:
           value: '1'
     -
       vid: bullying_descriptors
+      tid: '107'
+      langcode: en
+      name: Other
+      description__value: null
+      description__format: null
+      weight: '18'
+      parent: '0'
+      uuid: 849dca21-2290-4efc-af2e-9f901e28eafa
+      field_display:
+        -
+          value: '1'
+    -
+      vid: bullying_descriptors
       tid: '15'
       langcode: en
       name: 'Racial harassment'

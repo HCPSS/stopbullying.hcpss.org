@@ -14,6 +14,7 @@ dependencies:
     - field.field.report.bullying_harassment.field_locations
     - field.field.report.bullying_harassment.field_medical_attention
     - field.field.report.bullying_harassment.field_offenders
+    - field.field.report.bullying_harassment.field_other_discription
     - field.field.report.bullying_harassment.field_permanent_effects
     - field.field.report.bullying_harassment.field_physical_injury
     - field.field.report.bullying_harassment.field_psych_services_sought
@@ -54,7 +55,7 @@ third_party_settings:
         - field_medical_attention
         - field_permanent_effects
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: html_element
       format_settings:
         id: ''
@@ -74,7 +75,7 @@ third_party_settings:
         - field_psychological_injury
         - field_psych_services_sought
       parent_name: ''
-      weight: 12
+      weight: 13
       format_type: html_element
       format_settings:
         id: ''
@@ -94,7 +95,7 @@ third_party_settings:
         - field_caused_absences
         - field_days_absent
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: html_element
       format_settings:
         id: ''
@@ -115,7 +116,7 @@ bundle: bullying_harassment
 mode: default
 content:
   field_additional_information:
-    weight: 14
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -137,7 +138,7 @@ content:
     type: options_buttons
     region: content
   field_cause:
-    weight: 10
+    weight: 11
     settings:
       rows: 5
       placeholder: ''
@@ -165,7 +166,7 @@ content:
     type: number
     region: content
   field_description:
-    weight: 9
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -173,7 +174,7 @@ content:
     type: string_textarea
     region: content
   field_locations:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -196,6 +197,14 @@ content:
       default_paragraph_type: person
     third_party_settings: {  }
     type: entity_reference_paragraphs
+    region: content
+  field_other_discription:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_permanent_effects:
     weight: 13

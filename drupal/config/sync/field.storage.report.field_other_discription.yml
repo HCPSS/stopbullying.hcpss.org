@@ -1,0 +1,21 @@
+uuid: bfa0075d-7773-4582-9426-d8c1ae8d6d47
+langcode: en
+status: true
+dependencies:
+  module:
+    - gentle_panther
+id: report.field_other_discription
+field_name: field_other_discription
+entity_type: report
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

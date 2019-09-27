@@ -1,0 +1,19 @@
+uuid: 7da016a4-f8e2-412f-84c0-81d1e128a841
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.report.field_other_discription
+    - gentle_panther.report_type.bullying_harassment
+id: report.bullying_harassment.field_other_discription
+field_name: field_other_discription
+entity_type: report
+bundle: bullying_harassment
+label: 'Please describe what happened'
+description: 'You selected <em>Other</em> in describing what happened. Please describe what happened here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

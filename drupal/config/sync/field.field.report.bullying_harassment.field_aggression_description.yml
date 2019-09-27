@@ -10,7 +10,7 @@ field_name: field_aggression_description
 entity_type: report
 bundle: bullying_harassment
 label: 'Describe the physical aggression'
-description: 'You described the incident as including Any bullying, harassment, or intimidation that involves physical aggression. Please describe.'
+description: 'You described the incident as including <em>Any bullying, harassment, or intimidation that involves physical aggression</em>. Please describe.'
 required: false
 translatable: false
 default_value: {  }

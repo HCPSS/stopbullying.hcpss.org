@@ -176,18 +176,30 @@ function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form
  */
 function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $options = $form['field_bullying_type']['widget']['#options'];
-  $option = NULL;
+  $aggression = NULL;
+  $other = NULL;
   foreach ($options as $id => $markup) {
     if (strpos((string)$markup, 'physical aggression') !== FALSE) {
-      $option = $id;
-      break;
+      $aggression = $id;
+    }
+    
+    if ((string)$markup == 'Other') {
+      $other = $id;
     }
   }
 
-  if ($option) {
+  if ($aggression) {
     $form['field_aggression_description']['#states'] = [
       'visible' => [
-        ':input[name="field_bullying_type[' . $option . ']"]' => ['checked' => TRUE],
+        ':input[name="field_bullying_type[' . $aggression . ']"]' => ['checked' => TRUE],
+      ],
+    ];
+  }
+  
+  if ($other) {
+    $form['field_other_discription']['#states'] = [
+      'visible' => [
+        ':input[name="field_bullying_type[' . $other . ']"]' => ['checked' => TRUE],
       ],
     ];
   }
