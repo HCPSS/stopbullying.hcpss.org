@@ -6,3 +6,4 @@
 /.project
 .DS_Store
 /.credentials
+/drupal.sql

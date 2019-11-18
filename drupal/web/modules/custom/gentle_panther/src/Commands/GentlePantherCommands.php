@@ -6,10 +6,9 @@ use Drush\Commands\DrushCommands;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\hcpss_school_vocabulary\Commands\HcpssSchoolVocabularyCommands;
-use Drupal\gentle_panther\Entity\Report;
-use Drupal\gentle_panther\Generator\BullyingGenerator;
-use Drupal\gentle_panther\Generator\PotentialAltercationGenerator;
 use Drupal\gentle_panther\Generator\ReportGenerator;
+use Drupal\Component\Serialization\Yaml;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * A drush command file.
@@ -124,6 +123,50 @@ class GentlePantherCommands extends DrushCommands {
   }
 
   /**
+   * Seed pages.
+   *
+   * @command gentle-panther:seed:pages
+   */
+  public function seedPages() {
+    $filepath = vsprintf('%s/%s/%s', [
+      DRUPAL_ROOT,
+      drupal_get_path('module', 'gentle_panther'),
+      'data/pages.yml',
+    ]);
+    $yaml = file_get_contents($filepath);
+    $pageData = Yaml::decode($yaml);
+
+    foreach ($pageData as $index => $data) {
+      $page = Node::create([
+        'type' => 'page',
+        'title' => $data['title'],
+        'uid' => 1,
+        'body' => [
+          'format' => 'full_html',
+          'summary' => '',
+          'value' => $data['body'],
+        ],
+      ]);
+
+      $page->save();
+
+      if ($data['front']) {
+        \Drupal::configFactory()
+          ->getEditable('system.site')
+          ->set('page.front', '/node/' . $page->id())
+          ->save();
+      }
+
+      MenuLinkContent::create([
+        'title' => $data['title'],
+        'link' => ['uri' => 'entity:node/' . $page->id()],
+        'menu_name' => 'main',
+        'weight' => $index,
+      ])->save();
+    }
+  }
+
+  /**
    * Initialize the gentle-panther site.
    *
    * @command gentle-panther:init
@@ -131,47 +174,7 @@ class GentlePantherCommands extends DrushCommands {
    *   Initialize the site.
    */
   public function init() {
-    $page = Node::create([
-      'type' => 'page',
-      'title' => 'Home',
-      'uid' => 1,
-      'body' => [
-        'format' => 'basic_html',
-        'summary' => '',
-        'value' => '
-          <p>HCPSS has taken a strong stand against bullying with a goal to
-          eradicate bullying. No act of bullying in Howard County schools will
-          be ignored. Unfortunately, bullying is a reality that lives within the
-          hallways of our schools and one that we must root out once and for
-          all. We know that those who are bullied may experience depression,
-          anxiety, sadness and loneliness. They can suffer from changes in sleep
-          and eating patterns and loss of interest in activities that they
-          typically enjoy. Children who have suffered through bullying have gone
-          so far as to injure themselves and even take their own life.</p>
-
-          <p>In October 2013 the State of Maryland enacted Grace’s Law, making
-          repeated, malicious cyber-abuse of a minor a criminal offense.
-          Cyberbullying is now against the law and violators can be fined,
-          jailed or both. This law was championed by Christine McComas who has
-          been a tireless proponent of anti-bullying efforts. Christine’s
-          daughter, Grace, tragically succumbed to the mental anguish caused by
-          cyberbullying and took her own life.</p>
-
-          <p>If you are experiencing bullying, say something. If you have
-          witnessed bullying, say something! Find a trusted adult such as a
-          parent, teacher, guidance counselor, coach or mentor. You may also
-          report bullying incidents online by using the form provided below.</p>
-        ',
-      ],
-    ]);
-
-    $page->save();
-
-    \Drupal::configFactory()
-      ->getEditable('system.site')
-      ->set('page.front', '/node/' . $page->id())
-      ->save();
-
+    $this->seedPages();
     $this->seedBullyingDescriptors();
     $this->seedLocations();
     $this->seedRoles();

@@ -6,11 +6,11 @@ definitions:
     weight: 0
     expanded: false
   gentle_panther__report__bullying:
-    enabled: true
+    weight: 0
     menu_name: main
     parent: ''
+    enabled: true
     expanded: false
-    weight: -49
   gentle_panther__report__inappropriate_conduct:
     enabled: false
     menu_name: main

@@ -6,3 +6,4 @@ _core:
 public_key: /var/www/drupal/credentials/public.key
 private_key: /var/www/drupal/credentials/private.key
 token_cron_batch_size: 0
+authorization_code_expiration: 300

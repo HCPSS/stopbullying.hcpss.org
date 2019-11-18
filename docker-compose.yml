@@ -5,6 +5,7 @@ services:
     container_name: gentle_panther_db
     image: mysql:5.7
     volumes:
+      - ./drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
       - ./.data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -33,3 +34,6 @@ services:
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
       DRUPAL_ENV: dev
+    command: >
+      bash -c "drush --root=/var/www/drupal/web upwd admin admin
+      && /usr/sbin/apache2ctl -D FOREGROUND"

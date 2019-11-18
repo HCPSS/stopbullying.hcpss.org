@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\gentle_panther\Commands\GentlePantherCommands;
+
+/**
+ * Seed pages.
+ */
+function gentle_panther_update_8001(&$sandbox) {
+  $commands = new GentlePantherCommands();
+  $commands->seedPages();
+}
