@@ -18,16 +18,16 @@ function gentle_panther_local_tasks_alter(&$local_tasks) {
  */
 function _gentle_panther_reporter_handler(array $form, FormStateInterface $form_state) {
   $reporter = $form_state->getValue('field_reporter');
-  
+
   if ($reporter[0]['subform']['anonymous']) {
     $form_state->unsetValue('field_reporter');
-    
+
     $reporter[0]['subform']['field_email'][0]['value'] = '';
     $reporter[0]['subform']['field_name'][0]['value'] = '';
     $reporter[0]['subform']['field_phone'][0]['value'] = '';
     $reporter[0]['subform']['field_role'] = [];
     $reporter[0]['subform']['field_school'][0]['target_id'] = NULL;
-    
+
     $form_state->setValue('field_reporter', $reporter);
   }
 }
@@ -53,7 +53,7 @@ function _gentle_panther_add_form_handler(array &$form, string $handler, $prepen
         $form['actions'][$action]['#submit'] = $handlers;
       } else {
         $form['actions'][$action]['#submit'][] = $handler;
-      }       
+      }
     }
   }
 }
@@ -126,20 +126,6 @@ function _gentle_panther_alter_reporter_widget(&$element, $delta) {
 }
 
 /**
- * Alter the person paragraph widget.
- *
- * @param array $element
- * @param int $delta
- */
-function _gentle_panther_alter_person_widget(&$element, $delta) {
-  $element['subform']['field_school']['#states'] = [
-    'visible' => [
-      ':input[name="field_offenders[' . $delta . '][subform][field_student][value]"]' => ['checked' => TRUE],
-    ],
-  ];
-}
-
-/**
  * Implementation of hook_field_widget_multivalue_WIDGET_ID_form_alter().
  */
 function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
@@ -151,10 +137,6 @@ function gentle_panther_field_widget_entity_reference_paragraphs_form_alter(&$el
   if ($element['#paragraph_type'] == 'person') {
     $element['subform']['#attributes']['class'][] = 'person-widget';
     $element['#attached']['library'][] = 'gentle_panther/gentle_panther.person.widget';
-
-    if ($context['widget']->getSetting('form_display_mode') == 'default') {
-      _gentle_panther_alter_person_widget($element, $context['delta']);
-    }
   }
 }
 
@@ -182,7 +164,7 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
     if (strpos((string)$markup, 'physical aggression') !== FALSE) {
       $aggression = $id;
     }
-    
+
     if ((string)$markup == 'Other') {
       $other = $id;
     }
@@ -195,7 +177,7 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
       ],
     ];
   }
-  
+
   if ($other) {
     $form['field_other_discription']['#states'] = [
       'visible' => [
@@ -221,7 +203,7 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
       ':input[name="field_caused_absences[value]"]' => ['checked' => TRUE],
     ],
   ];
-  
+
   _gentle_panther_add_form_handler($form, '_gentle_panther_reporter_handler', TRUE);
 }
 

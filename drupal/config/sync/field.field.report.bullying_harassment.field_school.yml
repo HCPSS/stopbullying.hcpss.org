@@ -10,7 +10,7 @@ id: report.bullying_harassment.field_school
 field_name: field_school
 entity_type: report
 bundle: bullying_harassment
-label: 'Which school would you like to submit this report to?'
+label: 'Which school does the alleged victim attend?'
 description: ''
 required: true
 translatable: false

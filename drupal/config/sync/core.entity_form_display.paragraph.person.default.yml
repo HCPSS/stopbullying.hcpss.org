@@ -6,7 +6,6 @@ dependencies:
     - field.field.paragraph.person.field_age
     - field.field.paragraph.person.field_name
     - field.field.paragraph.person.field_school
-    - field.field.paragraph.person.field_student
     - paragraphs.paragraphs_type.person
 id: paragraph.person.default
 targetEntityType: paragraph
@@ -37,13 +36,6 @@ content:
       match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_student:
-    weight: 2
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
 hidden:
   created: true

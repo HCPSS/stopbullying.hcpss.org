@@ -7,7 +7,6 @@ dependencies:
     - field.field.paragraph.person.field_age
     - field.field.paragraph.person.field_name
     - field.field.paragraph.person.field_school
-    - field.field.paragraph.person.field_student
     - paragraphs.paragraphs_type.person
 id: paragraph.person.abbreviated
 targetEntityType: paragraph
@@ -41,5 +40,4 @@ content:
     region: content
 hidden:
   created: true
-  field_student: true
   status: true
