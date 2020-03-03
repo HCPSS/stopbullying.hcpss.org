@@ -1,23 +1,21 @@
-uuid: 67b142f2-31cc-43d2-b9f8-1da06e566fc9
+uuid: 56813ccd-6e11-45c2-8f4f-af8095be7b5b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_age
+    - field.storage.paragraph.field_grade
     - paragraphs.paragraphs_type.person
-id: paragraph.person.field_age
-field_name: field_age
+  module:
+    - options
+id: paragraph.person.field_grade
+field_name: field_grade
 entity_type: paragraph
 bundle: person
-label: Age
+label: Grade
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  min: null
-  max: null
-  prefix: ''
-  suffix: ''
-field_type: integer
+settings: {  }
+field_type: list_string

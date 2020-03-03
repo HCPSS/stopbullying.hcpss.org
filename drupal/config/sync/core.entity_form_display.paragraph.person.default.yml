@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_grade
     - field.field.paragraph.person.field_name
     - field.field.paragraph.person.field_school
     - paragraphs.paragraphs_type.person
@@ -12,12 +12,11 @@ targetEntityType: paragraph
 bundle: person
 mode: default
 content:
-  field_age:
+  field_grade:
     weight: 1
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: number
+    type: options_select
     region: content
   field_name:
     weight: 0
@@ -28,7 +27,7 @@ content:
     type: string_textfield
     region: content
   field_school:
-    weight: 3
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60

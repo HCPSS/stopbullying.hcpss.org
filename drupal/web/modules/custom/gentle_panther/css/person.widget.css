@@ -32,3 +32,12 @@
 .person-widget .option {
   padding: 0 0 0 2rem;
 }
+
+.person-widget > .form-wrapper {
+  padding: 0;
+  margin-bottom: 0.3em;
+}
+
+.person-widget > .form-wrapper:last-of-type {
+  margin-bottom: 0;
+}

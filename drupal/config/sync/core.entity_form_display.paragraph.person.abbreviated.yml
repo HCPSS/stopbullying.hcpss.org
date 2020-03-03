@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.paragraph.abbreviated
-    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_grade
     - field.field.paragraph.person.field_name
     - field.field.paragraph.person.field_school
     - paragraphs.paragraphs_type.person
@@ -13,13 +13,12 @@ targetEntityType: paragraph
 bundle: person
 mode: abbreviated
 content:
-  field_age:
+  field_grade:
+    type: options_select
     weight: 1
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_name:
     weight: 0
     settings:

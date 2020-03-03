@@ -3,23 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.person.field_age
+    - field.field.paragraph.person.field_grade
     - field.field.paragraph.person.field_name
     - field.field.paragraph.person.field_school
     - paragraphs.paragraphs_type.person
+  module:
+    - options
 id: paragraph.person.default
 targetEntityType: paragraph
 bundle: person
 mode: default
 content:
-  field_age:
-    weight: 2
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
+  field_grade:
+    weight: 1
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: number_integer
+    type: list_default
     region: content
   field_name:
     weight: 0
@@ -30,7 +30,7 @@ content:
     type: string
     region: content
   field_school:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       link: true
