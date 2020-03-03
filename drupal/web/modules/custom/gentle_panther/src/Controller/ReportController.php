@@ -23,12 +23,12 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
 
   /**
    * A page that helps people choose what type of report to make.
-   * 
+   *
    * @return array
    */
   public function choose() {
     $random = new Random();
-    
+
     $report_types = [
       [
         'route' => 'gentle_panther.report.bullying',
@@ -51,16 +51,16 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
         'description' => $random->paragraphs(1),
       ],
     ];
-    
+
     return [
       '#theme' => 'choose_report',
       '#report_types' => $report_types,
     ];
   }
-  
+
   /**
-   * Thanks page for submitting a report. 
-   * 
+   * Thanks page for submitting a report.
+   *
    * @param string $tracking_number
    * @throws NotFoundHttpException
    * @return array
@@ -70,47 +70,47 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
     $rids = \Drupal::entityQuery('report')
       ->condition('name', $tracking_number)
       ->execute();
-    
+
     if (empty($rids)) {
       throw new NotFoundHttpException();
     }
-      
+
     return [
       '#markup' => '
-        <p>Thank you for reporting this issue to us. Your report has been issued 
+        <p>Thank you for reporting this issue to us. Your report has been issued
         tracking number ' . $tracking_number . '</p>
 
-        <p>If you provided your contact details, you will be contacted within 72 
+        <p>If you provided your contact details, you will be contacted within 72
         hours regarding this issue.</p>
       ',
     ];
   }
-  
+
   public function reportFormSubmit(array $form, FormStateInterface $form_state) {
 
-    
+
     $form_state->setRedirect('gentle_panther.report.thanks', [
       'tracking_number' => 'fakenumber',
     ]);
   }
-  
+
   /**
    * Get a report form by bundle.
-   * 
+   *
    * @param string $report_bundle
    * @return array
    */
   private function reportForm(string $report_bundle) {
     $report = Report::create(['type' => $report_bundle]);
     $form = $this->entityFormBuilder()->getForm($report);
-    
+
     if (array_key_exists('revision_log_message', $form)) {
       unset($form['revision_log_message']);
     }
-    
+
     return $form;
   }
-  
+
   /**
    * Public Substance Use/Abuse form.
    *
@@ -120,7 +120,7 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
   public function publicSubstanceUseForm() {
     return $this->reportForm('substance_use_abuse');
   }
-  
+
   /**
    * Public Potential Altercation / Threat form.
    *
@@ -130,7 +130,7 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
   public function publicPotentialAltercationForm() {
     return $this->reportForm('potential_altercation_threats');
   }
-  
+
   /**
    * Public Inappropriate Conduct form.
    *
@@ -140,17 +140,17 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
   public function publicInappropriateConductForm() {
     return $this->reportForm('inappropriate_conduct');
   }
-  
+
   /**
    * Public bullying form.
-   * 
+   *
    * @return array
    *   Renderable form
    */
   public function publicBullyingForm() {
     return $this->reportForm('bullying_harassment');
   }
-  
+
   /**
    * Displays a Report  revision.
    *
