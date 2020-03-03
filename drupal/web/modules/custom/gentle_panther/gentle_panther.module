@@ -176,6 +176,8 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
         ':input[name="field_bullying_type[' . $aggression . ']"]' => ['checked' => TRUE],
       ],
     ];
+  } else {
+    unset($form['field_aggression_description']);
   }
 
   if ($other) {
@@ -184,6 +186,8 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
         ':input[name="field_bullying_type[' . $other . ']"]' => ['checked' => TRUE],
       ],
     ];
+  } else {
+    unset($form['field_other_discription']);
   }
 
   $form['field_permanent_effects']['#states'] = $form['field_medical_attention']['#states'] = [
