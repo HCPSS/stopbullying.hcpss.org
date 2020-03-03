@@ -24,9 +24,9 @@ class GentlePantherCommands extends DrushCommands {
   public function generateReports() {
     $generators = [];
     $generators[] = new ReportGenerator('bullying_harassment');
-    $generators[] = new ReportGenerator('inappropriate_conduct');
-    $generators[] = new ReportGenerator('potential_altercation_threats');
-    $generators[] = new ReportGenerator('substance_use_abuse');
+//     $generators[] = new ReportGenerator('inappropriate_conduct');
+//     $generators[] = new ReportGenerator('potential_altercation_threats');
+//     $generators[] = new ReportGenerator('substance_use_abuse');
 
     foreach ($generators as $generator) {
       $generator->deleteAll();

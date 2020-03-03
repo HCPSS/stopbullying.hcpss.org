@@ -85,6 +85,10 @@ class ReportGenerator {
     }
 
     switch ($field->getName()) {
+      case 'field_school':
+        $report->field_school = ['target_id' => $this->getRandomTermId('schools')];
+
+        break;
       case 'field_description':
         $report->field_description = $this->random->paragraphs(rand(1, 3));
 
