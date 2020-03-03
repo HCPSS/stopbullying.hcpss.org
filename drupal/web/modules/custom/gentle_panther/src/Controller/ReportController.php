@@ -82,6 +82,9 @@ class ReportController extends ControllerBase implements ContainerInjectionInter
 
         <p>If you provided your contact details, you will be contacted within 72
         hours regarding this issue.</p>
+
+        <p>If this is an urgent matter that requires immediate attention, please
+        contact your school directly.</p>
       ',
     ];
   }
