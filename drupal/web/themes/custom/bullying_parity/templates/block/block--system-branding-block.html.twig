@@ -21,6 +21,15 @@
       <br><span class="slogan">{{ site_slogan }}</span>
     {% endif %}
   </p>
-  
-  {% block secondary_nav %}{% endblock %}
+
+  {% block secondary_nav %}
+    <nav>
+      <ul>
+        <li>
+          <a href="/report/bullying" 
+            title="Report Bullying, Cyberbullying, Harassment, or Intimidation">Make a Report</a>
+        </li>
+      </ul>
+    </nav>
+  {% endblock %}
 {% endblock %}
