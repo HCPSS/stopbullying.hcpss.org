@@ -4,10 +4,13 @@ var StopBullyingTester = require('./StopBullyingTester');
   let tester = new StopBullyingTester('firefox', 'http://stopbullying.hcpss.localhost');
 
   let minimalResult = await tester.submitBullyingReport({
+    "field_school": "Long Reach High School",
     "field_description[0][value]": "a"
   });
 
-  await tester.validateReport(minimalResult);
+  console.log(minimalResult);
 
-  await tester.validateAnonymizer();
+  //await tester.validateReport(minimalResult);
+
+  //await tester.validateAnonymizer();
 })();

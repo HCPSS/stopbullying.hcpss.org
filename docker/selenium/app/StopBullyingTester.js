@@ -46,8 +46,8 @@ class StopBullyingTester extends DrupalTester {
   }
 
   submitBullyingReport(values) {
-    return this.navigateTo(this.baseUrl, 'Home | Stop Bullying | Howard County Public Schools').then(() => {
-      return this.followLink('Report Bullying, Harassment, or Intimidation');
+    return this.navigateTo(this.baseUrl, 'Bullying Prevention | Stop Bullying | Howard County Public Schools').then(() => {
+      return this.followLink('Report Bullying, Cyberbullying, Harassment, or Intimidation');
     })
     .then(() => { return this.fillForm(values); })
     .then(() => {
