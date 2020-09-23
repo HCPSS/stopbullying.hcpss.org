@@ -1,7 +1,7 @@
 name: 'Gentle Panther'
 type: module
 description: 'Bullying, Harassment, or Intimidation Reporting.'
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 package: 'HCPSS'
 dependencies:
   - telephone

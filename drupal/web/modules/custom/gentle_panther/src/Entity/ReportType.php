@@ -22,6 +22,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *       "html" = "Drupal\gentle_panther\ReportTypeHtmlRouteProvider",
  *     },
  *   },
+ *   config_export = {
+ *     "label",
+ *     "id",
+ *   },
  *   config_prefix = "report_type",
  *   admin_permission = "administer site configuration",
  *   bundle_of = "report",

@@ -792,7 +792,7 @@ else {
   $config['config_split.config_split.development_split']['status'] = FALSE;
 }
 
-$config_directories['sync'] = '/var/www/drupal/config/sync';
+$settings["config_sync_directory"] = '/var/www/drupal/config/sync';
 
 $databases['default']['default'] = array (
   'database' => getenv('MYSQL_DATABASE'),
@@ -804,5 +804,3 @@ $databases['default']['default'] = array (
   'prefix' => '',
   'username' => getenv('MYSQL_USER'),
 );
-
-$settings['install_profile'] = 'minimal';

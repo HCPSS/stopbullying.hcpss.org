@@ -65,6 +65,11 @@ use Drupal\user\UserInterface;
  *     "translation_revert" = "/admin/content/report/{report}/revisions/{report_revision}/revert/{langcode}",
  *     "collection" = "/admin/content/reports",
  *   },
+ *   revision_metadata_keys = {
+ *     "revision_user" = "revision_user",
+ *     "revision_created" = "revision_created",
+ *     "revision_log_message" = "revision_log"
+ *   },
  *   bundle_entity_type = "report_type",
  *   field_ui_base_route = "entity.report_type.edit_form"
  * )

@@ -1,7 +1,7 @@
 name: Gentle Panther Admin
 type: theme
 description: Subtheme of seven
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 libraries:
   - gentle_panther_admin/global-styling
 base theme: seven
