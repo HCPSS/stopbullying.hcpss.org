@@ -211,6 +211,11 @@ function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormS
   ];
 
   _gentle_panther_add_form_handler($form, '_gentle_panther_reporter_handler', TRUE);
+  
+  honeypot_add_form_protection($form, $form_state, [
+    'honeypot',
+    'time_restriction',
+  ]);
 }
 
 /**

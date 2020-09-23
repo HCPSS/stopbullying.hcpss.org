@@ -2,5 +2,5 @@ uuid: d42489f7-a092-4f3a-9e8f-96007c052b2b
 langcode: en
 status: true
 dependencies: {  }
-id: inappropriate_conduct
 label: 'Inappropriate Conduct'
+id: inappropriate_conduct
