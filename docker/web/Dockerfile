@@ -12,6 +12,7 @@ COPY drupal/config                         /var/www/drupal/config
 COPY drupal/web/sites/default/settings.php /var/www/drupal/web/sites/default/settings.php
 
 RUN mkdir /var/www/drupal/files && chown www-data:www-data /var/www/drupal/files
+RUN mkdir /var/www/drupal/web/sites/default/files && chown www-data:www-data /var/www/drupal/web/sites/default/files
 
 RUN composer install -d /var/www/drupal
 
