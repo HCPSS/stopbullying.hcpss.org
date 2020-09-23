@@ -5,7 +5,7 @@ services:
     container_name: stopbullying_db
     image: mysql:5.7
     volumes:
-      #- ./drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
+      - ./drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
       - ./.data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -33,14 +33,6 @@ services:
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
       DRUPAL_ENV: dev
-    # command: >
-    #   bash -c "drush --root=/var/www/drupal/web upwd admin admin
-    #   && /usr/sbin/apache2ctl -D FOREGROUND"
-
-  python:
-    image: python
-    links:
-      - drupal:stopbullying.hcpss.localhost
-    volumes:
-      - ./app.py:/app.py
-    command: bash -c "pip install requests && tail -f /dev/null"
+    command: >
+      bash -c "drush --root=/var/www/drupal/web upwd admin admin
+      && /usr/sbin/apache2ctl -D FOREGROUND"
