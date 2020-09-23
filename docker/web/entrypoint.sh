@@ -28,7 +28,7 @@ done
 
 drush --root=/var/www/drupal/web cc drush
 drush --root=/var/www/drupal/web cr
-drush --root=/var/www/drupal/web csim -y
+drush --root=/var/www/drupal/web cim -y
 drush --root=/var/www/drupal/web updatedb -y
 
 exec "$@"
