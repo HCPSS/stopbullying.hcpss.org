@@ -157,6 +157,8 @@ function gentle_panther_form_alter(&$form, FormStateInterface $form_state, $form
  * Implementation of hook_form_FORM_ID_alter().
  */
 function gentle_panther_form_report_bullying_harassment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['revision_log']['#access'] = FALSE;
+  
   $options = $form['field_bullying_type']['widget']['#options'];
   $aggression = NULL;
   $other = NULL;
