@@ -1,5 +1,6 @@
 *
 */
+credentials
 !drupal/web/autoload.php
 !drupal/web/modules/custom
 !drupal/web/themes/custom
