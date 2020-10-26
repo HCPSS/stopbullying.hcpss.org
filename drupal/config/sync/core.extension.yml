@@ -25,6 +25,7 @@ module:
   file: 0
   filter: 0
   gentle_panther: 0
+  google_analytics: 0
   hcpss_school_vocabulary: 0
   help: 0
   history: 0
