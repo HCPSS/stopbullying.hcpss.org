@@ -91,11 +91,7 @@
 		"patches" : {
 			"drupal/google_analytics" : {
 				"Add GA4 support" : "https://www.drupal.org/files/issues/2020-10-22/ga4-3178179-3.patch"
-			},
-			"drupal/devel": {
-				"Issue 344": "https://gitlab.com/drupalspoons/devel/uploads/52d19b6095b17037451cbe7c55063888/devel-344-event-dispatcher.patch"
 			}
-			
 		},
 		"installer-paths" : {
 			"web/core" : [
