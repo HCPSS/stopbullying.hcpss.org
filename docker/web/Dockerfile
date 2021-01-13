@@ -1,4 +1,4 @@
-FROM banderson/drupal:9
+FROM banderson/drupal:base
 
 LABEL maintainer="brendan_anderson@hcpss.org"
 LABEL vendor="Howard County Public School System"
@@ -23,4 +23,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 80
 EXPOSE 443
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["apache2-foreground"]
