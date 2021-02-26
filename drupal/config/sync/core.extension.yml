@@ -16,6 +16,7 @@ module:
   datetime: 0
   dblog: 0
   disable_messages: 0
+  drd_agent: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
