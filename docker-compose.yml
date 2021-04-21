@@ -17,7 +17,7 @@ services:
     container_name: stopbullying_web
     depends_on:
       - db
-    image: reg.hcpss.org/stopbullying/web:1.1.0
+    image: reg.hcpss.org/stopbullying/web:1.1.1
     build:
       context: .
       dockerfile: ./docker/web/Dockerfile
