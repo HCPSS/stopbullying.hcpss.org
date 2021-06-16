@@ -2,7 +2,7 @@ FROM banderson/drupal:base
 
 LABEL maintainer="brendan_anderson@hcpss.org"
 LABEL vendor="Howard County Public School System"
-LABEL org.hcpss.bullying.version="1.1.3"
+LABEL org.hcpss.bullying.version="1.1.4"
 
 COPY drupal/web/modules/custom             /var/www/drupal/web/modules/custom
 COPY drupal/web/themes/custom              /var/www/drupal/web/themes/custom
